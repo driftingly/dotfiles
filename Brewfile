@@ -20,7 +20,6 @@ brew 'tree'                     # https://formulae.brew.sh/formula/tree - List d
 brew 'php'
 brew 'php@7.4'
 brew 'composer'
-brew 'imagemagick'
 brew 'nginx'
 brew 'node'
 brew 'yarn'
