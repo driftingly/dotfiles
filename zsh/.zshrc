@@ -82,7 +82,6 @@ plugins=(
     git
     artisan
     colorize
-    zsh-cloud-ssh
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
