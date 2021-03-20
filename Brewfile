@@ -23,6 +23,7 @@ brew 'composer'
 brew 'nginx'
 brew 'node'
 brew 'yarn'
+brew 'gh'
 
 # Apps
 cask 'alfred'
