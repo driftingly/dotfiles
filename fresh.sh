@@ -34,6 +34,11 @@ ln -s $HOME/.dotfiles/zsh/.zshrc $HOME/.zshrc
 # Use .gitignore_global
 git config --global core.excludesfile ~/.dotfiles/.gitignore_global
 
+# Configure git
+git config --global user.name "Anthony Clark"
+git config --global user.email anthonyclark@gmail.com
+git config --global pull.rebase true
+
 # Set macOS preferences
 # We will run this last because this will reload the shell
 source .macos

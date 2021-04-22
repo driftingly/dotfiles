@@ -8,5 +8,3 @@ git clone https://github.com/jessarcher/zsh-artisan.git ${ZSH_CUSTOM:-~/.oh-my-z
 echo "Cloning repositories..."
 
 SITES=$HOME/Sites
-
-# Business Applications
