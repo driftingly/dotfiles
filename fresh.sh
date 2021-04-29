@@ -20,7 +20,7 @@ brew tap homebrew/bundle
 brew bundle
 
 # Install global Composer packages
-/usr/local/bin/composer global require laravel/installer laravel/valet beyondcode/expose tightenco/takeout squizlabs/php_codesniffer friendsofphp/php-cs-fixer phpstan/phpstan
+/opt/homebrew/bin/composer global require laravel/installer laravel/valet beyondcode/expose tightenco/takeout squizlabs/php_codesniffer friendsofphp/php-cs-fixer phpstan/phpstan
 
 # Install Laravel Valet
 $HOME/.composer/vendor/bin/valet install
