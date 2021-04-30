@@ -30,25 +30,32 @@ brew 'node'
 brew 'yarn'
 
 # Apps
+cask '1password'
+cask '1password-cli'
 cask 'alfred'
 cask 'brave-browser'
 cask 'docker'
 cask 'figma'
 cask 'firefox'
 cask 'flux'
+cask 'github'
 cask 'google-chrome'
+cask 'google-backup-and-sync'
 cask 'grammarly'
 cask 'iterm2'
 cask 'lastpass'
+cask 'phpmon'
 cask 'ray'
+cask 'sequel-ace'
+cask 'sizzy'
+cask 'slack'
 cask 'spotify'
 cask 'tableplus'
 cask 'tinkerwell'
 cask 'visual-studio-code'
-cask 'sequel-ace'
-cask 'sizzy'
+cask 'zoom'
 
 # Mac App Store
-mas 'GIPHY Capture. The GIF Maker', id: 668208984
+mas 'Giphy Capture', id: 668208984
 mas 'Twitter', id: 1482454543
 mas 'Pixelmator Pro', id: 1289583905
