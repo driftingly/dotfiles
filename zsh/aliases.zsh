@@ -15,6 +15,7 @@ alias sites="cd $HOME/Sites"
 alias a="php artisan"
 alias fresh="php artisan migrate:fresh --seed"
 alias seed="php artisan db:seed"
+alias atest="artisan test --parallel"
 
 # PHP
 alias cfresh="rm -rf vendor/ composer.lock && composer i"
