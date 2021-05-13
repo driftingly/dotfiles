@@ -56,6 +56,5 @@ cask 'visual-studio-code'
 cask 'zoom'
 
 # Mac App Store
-mas 'Giphy Capture', id: 668208984
 mas 'Twitter', id: 1482454543
 mas 'Pixelmator Pro', id: 1289583905
