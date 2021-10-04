@@ -50,3 +50,9 @@ alias unstage="git restore --staged ."
 alias wip="commit wip"
 alias prune-dry="git remote prune origin --dry-run"
 alias prune="git remote prune origin"
+
+
+# Functions
+function db() {
+    open mysql://127.0.0.1/$1
+}
