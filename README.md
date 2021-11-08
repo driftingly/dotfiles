@@ -29,3 +29,6 @@ If you did all of the above you may now follow these install instructions to set
 
 4. Run `~/.dotfiles/fresh.sh` to start the installation
 5. Restart your computer to finalize the process
+
+## Other settings
+https://twitter.com/ericlbarnes/status/1415049563933757441?s=21
