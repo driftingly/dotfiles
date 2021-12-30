@@ -19,8 +19,6 @@ alias atest="artisan test --parallel"
 
 # PHP
 alias cfresh="rm -rf vendor/ composer.lock && composer i"
-alias php74="docker run -it -w /data -v ${PWD}:/data:delegated --entrypoint php --rm registry.gitlab.com/grahamcampbell/php:7.4"
-alias php8="docker run -it -w /data -v ${PWD}:/data:delegated --entrypoint php --rm registry.gitlab.com/grahamcampbell/php:8.0"
 alias composer="php -d memory_limit=-1 /opt/homebrew/bin/composer"
 
 # JS
@@ -50,7 +48,6 @@ alias unstage="git restore --staged ."
 alias wip="commit wip"
 alias prune-dry="git remote prune origin --dry-run"
 alias prune="git remote prune origin"
-
 
 # Opens database in applications like TablePlus
 # Example 1: `db` command will check env file in its directory and grab env variables and will open that database
