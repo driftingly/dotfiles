@@ -71,5 +71,7 @@ cask 'visual-studio-code'
 cask 'zoom'
 
 # Mac App Store
-mas 'Twitter', id: 1482454543
+mas 'Bear – Markdown Notes', id: 1091189122
+mas 'Gifox', id: 1461845568
 mas 'Pixelmator Pro', id: 1289583905
+mas 'Twitter', id: 1482454543
