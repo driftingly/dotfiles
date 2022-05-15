@@ -30,7 +30,7 @@ brew bundle --file $DOTFILES/Brewfile
 pecl install imagick redis swoole
 
 # Install global Composer packages
-/opt/homebrew/bin/composer global require laravel/installer laravel/valet beyondcode/expose tightenco/takeout squizlabs/php_codesniffer friendsofphp/php-cs-fixer phpstan/phpstan
+/opt/homebrew/bin/composer global require laravel/installer laravel/valet beyondcode/expose tightenco/takeout squizlabs/php_codesniffer friendsofphp/php-cs-fixer phpstan/phpstan spatie/visit
 
 # Install Laravel Valet
 $HOME/.composer/vendor/bin/valet install
