@@ -9,6 +9,7 @@ tap 'stripe/stripe-cli'             # https://github.com/stripe/stripe-cli
 # Binaries
 brew 'ack'                              # https://formulae.brew.sh/formula/ack - Search tool like grep, but optimized for programmers
 brew 'bash'                             # https://formulae.brew.sh/formula/bash - Latest Bash version
+brew 'bat'                              # https://formulae.brew.sh/formula/bat - Clone of cat(1) with syntax highlighting and Git integration
 brew 'coreutils'                        # https://formulae.brew.sh/formula/coreutils - Those that come with macOS are outdated
 brew 'gh'                               # https://formulae.brew.sh/formula/gh - GitHub command-line tool
 brew 'git'                              # https://formulae.brew.sh/formula/git - Distributed revision control system
