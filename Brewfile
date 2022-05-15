@@ -66,6 +66,7 @@ cask 'slack'
 cask 'spotify'
 cask 'tableplus'
 cask 'tinkerwell'
+cask 'todoist'
 cask 'visual-studio-code'
 cask 'zoom'
 
