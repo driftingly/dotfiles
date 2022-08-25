@@ -75,3 +75,10 @@ db() {
 
     open $DB_URL
 }
+
+# Loop over a test to check an intermitent failure
+# loopPhpUnit tests/Unit/Reports/ProductActivityReportTest.php --filter 'it_filters_by_category'
+loopPhpUnit()
+{
+    while true; do vendor/bin/phpunit --stop-on-failure "$@" || break; done;
+}
