@@ -35,7 +35,6 @@ brew 'gifsicle'
 # Development
 brew 'php'
 brew 'php@8.0'
-brew 'php@7.4'
 brew 'composer'
 brew 'imagemagick'
 brew 'nginx'
@@ -47,6 +46,7 @@ cask '1password'
 cask '1password-cli'
 cask 'alfred'
 cask 'brave-browser'
+cask 'cron'
 cask 'dbngin'
 cask 'discord'
 cask 'docker'
@@ -76,3 +76,4 @@ mas 'Bear – Markdown Notes', id: 1091189122
 mas 'Gifox', id: 1461845568
 mas 'Pixelmator Pro', id: 1289583905
 mas 'Twitter', id: 1482454543
+mas 'Time Sink', id: 1494023538
