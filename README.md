@@ -15,7 +15,8 @@ Checkout the checklist at https://github.com/driesvints/dotfiles#before-you-re-i
 If you did all of the above you may now follow these install instructions to setup a new Mac.
 
 1. Update macOS to the latest version with the App Store
-2. [Generate a new public and private SSH key](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) by running:
+2. You can now use 1Password to configure your SSH Key and Signing or
+[Generate a new public and private SSH key](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) by running:
 
    ```zsh
    curl https://raw.githubusercontent.com/driesvints/dotfiles/HEAD/ssh.sh | sh -s "<your-email-address>"
@@ -28,7 +29,8 @@ If you did all of the above you may now follow these install instructions to set
     ```
 
 4. Run `~/.dotfiles/fresh.sh` to start the installation
-5. Restart your computer to finalize the process
+5. After mackup is synced with your cloud storage (check local icloud is synced), restore preferences by running mackup restore
+6. Restart your computer to finalize the process
 
 ## Other settings
 
