@@ -1,0 +1,27 @@
+[alias]
+  # https://softwaredoug.com/blog/2022/11/09/idiot-proof-git-aliases.html
+  # Rebase workflow
+    mainbranch = "!git remote show origin | sed -n '/HEAD branch/s/.*: //p'"
+    synced = "!git pull origin $(git mainbranch) --rebase"
+    update = "!git pull origin $(git rev-parse --abbrev-ref HEAD) --rebase"
+    squash = "!git rebase -v -i $(git mainbranch)"
+    publish = push origin HEAD --force-with-lease
+    pub = publish
+    ammend = commit --amend
+    amend = commit --amend
+
+  # Github - From https://salferrarello.com/git-alias-open-pull-request-github/
+    pr = "!f() { \
+       open \"$(git ls-remote --get-url $(git config --get branch.$(git rev-parse --abbrev-ref HEAD).remote) \
+       | sed 's|git@github.com:\\(.*\\)$|https://github.com/\\1|' \
+       | sed 's|\\.git$||'; \
+       )/compare/$(\
+       git config --get branch.$(git rev-parse --abbrev-ref HEAD).merge | cut -d '/' -f 3- \
+       )?expand=1\"; \
+  }; f"
+    hub = "!f() { \
+       open \"$(git ls-remote --get-url \
+       | sed 's|git@github.com:\\(.*\\)$|https://github.com/\\1|' \
+       | sed 's|\\.git$||'; \
+       )\"; \
+  }; f"

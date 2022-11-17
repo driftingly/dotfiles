@@ -40,6 +40,9 @@ git config --global user.name "Anthony Clark"
 git config --global user.email anthonyclark@gmail.com
 git config --global pull.rebase true
 
+# Add other git config settings
+cat $DOTFILES/.gitconfig >> $HOME/.gitconfig
+
 # Create a Sites directory
 mkdir $HOME/Sites
 
