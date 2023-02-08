@@ -21,6 +21,22 @@ alias atest="artisan test --parallel"
 alias cfresh="rm -rf vendor/ composer.lock && composer i"
 alias composer="php -d memory_limit=-1 /opt/homebrew/bin/composer"
 
+alias php7.2="/opt/homebrew/Cellar/php@7.2/7.2.34_6/bin/php"
+alias php8.0="/opt/homebrew/Cellar/php@8.0/8.0.27_1/bin/php"
+alias php8.1="/opt/homebrew/Cellar/php@8.1/8.1.15/bin/php"
+
+composer7.2() {
+    php7.2 -d memory_limit=-1 /opt/homebrew/bin/composer "$@"
+}
+
+composer8.0() {
+    php8.0 -d memory_limit=-1 /opt/homebrew/bin/composer "$@"
+}
+
+composer8.1() {
+    php8.1 -d memory_limit=-1 /opt/homebrew/bin/composer "$@"
+}
+
 # JS
 alias nfresh="rm -rf node_modules/ package-lock.json && npm install"
 alias watch="npm run watch"
