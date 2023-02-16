@@ -21,7 +21,7 @@ alias atest="artisan test --parallel"
 alias cfresh="rm -rf vendor/ composer.lock && composer i"
 alias composer="php -d memory_limit=-1 /opt/homebrew/bin/composer"
 
-alias php8.0="/opt/homebrew/Cellar/php@8.0/8.0.27_1/bin/php"
+alias php8.0="/opt/homebrew/Cellar/php@8.0/8.0.28/bin/php"
 alias php8.1="/opt/homebrew/Cellar/php@8.1/8.1.15/bin/php"
 
 composer8.0() {
