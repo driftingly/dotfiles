@@ -80,6 +80,7 @@ ZSH_CUSTOM=$DOTFILES/zsh
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
+    git-open
     artisan
     colorize
     zsh-autosuggestions

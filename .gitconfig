@@ -1,6 +1,35 @@
+[user]
+    name = Anthony Clark
+    email = anthonyclark@gmail.com
+[core]
+    excludesfile = ~/.dotfiles/.gitignore_global
+[push]
+    default = current
+    autoSetupRemote = true
+[fetch]
+    prune = true
+[pull]
+    rebase = true
 [alias]
-  # https://softwaredoug.com/blog/2022/11/09/idiot-proof-git-aliases.html
-  # Rebase workflow
+    # branch and checkout
+    take ="checkout -b"
+    # checkout
+    c = "checkout"
+    # short status
+    s = "status -s -b --renames"
+    # pull
+    p = "pull"
+    # reset head hard
+    rshh="reset head --hard"
+    # nice log
+    l = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
+    # Rebase against the $remote $branch
+    rb = "!f() { timestamp=$(date +%s); touch .gitstashflag 1>/dev/null && git add . 1>/dev/null && git stash push -m \"git-rbd-stash-${1}-${2}-${timestamp}\" 1>/dev/null && git pull --rebase $1 $2:-$(git rev-parse --abbrev-ref HEAD) && git stash pop 1>/dev/null && rm .gitstashflag 1>/dev/null && git rm .gitstashflag 1>/dev/null; }; f"
+    # wip it up
+    wipup = "!git add . && git commit -m wip && git push"
+
+    # https://softwaredoug.com/blog/2022/11/09/idiot-proof-git-aliases.html
+    # Rebase workflow
     mainbranch = "!git remote show origin | sed -n '/HEAD branch/s/.*: //p'"
     synced = "!git pull origin $(git mainbranch) --rebase"
     update = "!git pull origin $(git rev-parse --abbrev-ref HEAD) --rebase"
@@ -10,7 +39,7 @@
     ammend = commit --amend
     amend = commit --amend
 
-  # Github - From https://salferrarello.com/git-alias-open-pull-request-github/
+    # Github - From https://salferrarello.com/git-alias-open-pull-request-github/
     pr = "!f() { \
        open \"$(git ls-remote --get-url $(git config --get branch.$(git rev-parse --abbrev-ref HEAD).remote) \
        | sed 's|git@github.com:\\(.*\\)$|https://github.com/\\1|' \
