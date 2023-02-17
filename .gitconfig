@@ -3,6 +3,19 @@
     email = anthonyclark@gmail.com
 [core]
     excludesfile = ~/.dotfiles/.gitignore_global
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
+[delta]
+    light = true
+    syntax-theme = GitHub
+    line-numbers = true
 [push]
     default = current
     autoSetupRemote = true

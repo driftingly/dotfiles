@@ -13,6 +13,7 @@ brew 'bat'                              # https://formulae.brew.sh/formula/bat -
 brew 'coreutils'                        # https://formulae.brew.sh/formula/coreutils - Those that come with macOS are outdated
 brew 'gh'                               # https://formulae.brew.sh/formula/gh - GitHub command-line tool
 brew 'git'                              # https://formulae.brew.sh/formula/git - Distributed revision control system
+brew 'git-delta'                        # https://formulae.brew.sh/formula/git-delta - A syntax-highlighting pager for git and diff
 brew 'grep'                             # https://formulae.brew.sh/formula/grep - GNU grep, egrep and fgrep
 brew 'httpie'                           # https://formulae.brew.sh/formula/httpie - User-friendly cURL replacement (command-line HTTP client)
 brew 'hub'                              # https://formulae.brew.sh/formula/hub - Add GitHub support to git on the command-line
