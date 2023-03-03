@@ -115,3 +115,6 @@ export LANG=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Add GitHub Copilot CLI aliases to shell for easy access
+eval "$(github-copilot-cli alias -- "$0")"
