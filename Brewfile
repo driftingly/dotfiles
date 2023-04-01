@@ -34,14 +34,15 @@ brew 'svgo'
 brew 'gifsicle'
 
 # Development
+brew 'composer'
+brew 'imagemagick'
 brew 'php'
 brew 'php@8.1'
 brew 'php@8.0'
-brew 'composer'
-brew 'imagemagick'
 brew 'nginx'
 brew 'node'
 brew 'yarn'
+brew 'yqrashawn/goku/goku'
 
 # Apps
 cask '1password'
@@ -59,7 +60,9 @@ cask 'flux'
 cask 'github'
 cask 'google-chrome'
 cask 'grammarly'
+cask 'hammerspoon'
 cask 'iterm2'
+cask 'karabiner-elements'
 cask 'notion'
 cask 'obsidian'
 cask 'phpmon'
@@ -69,13 +72,13 @@ cask 'sizzy'
 cask 'slack'
 cask 'spotify'
 cask 'tableplus'
+cask 'telegram'
 cask 'tinkerwell'
 cask 'todoist'
 cask 'visual-studio-code'
 cask 'zoom'
 
 # Mac App Store
-mas 'Bear – Markdown Notes', id: 1091189122
 mas 'Gifox', id: 1461845568
 mas 'Pixelmator Pro', id: 1289583905
 mas 'Twitter', id: 1482454543
