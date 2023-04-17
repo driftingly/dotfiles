@@ -18,6 +18,7 @@ brew 'grep'                             # https://formulae.brew.sh/formula/grep 
 brew 'httpie'                           # https://formulae.brew.sh/formula/httpie - User-friendly cURL replacement (command-line HTTP client)
 brew 'hub'                              # https://formulae.brew.sh/formula/hub - Add GitHub support to git on the command-line
 brew 'jq'                               # https://formulae.brew.sh/formula/jq - Lightweight and flexible command-line JSON processor
+brew 'neovim'                           # https://formulae.brew.sh/formula/neovim - Vim-fork focused on extensibility and agility
 brew 'mackup'                           # https://formulae.brew.sh/formula/mackup - Backup and restore macOS applications and settings
 brew 'mas'                              # https://formulae.brew.sh/formula/mas - Mac App Store manager
 brew 'pkg-config'                       # https://formulae.brew.sh/formula/pkg-config - Manage compile and link flags for libraries https://github.com/driesvints/dotfiles/issues/20
