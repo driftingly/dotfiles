@@ -5,6 +5,8 @@ alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias ll="/opt/homebrew/Cellar/coreutils/9.1/libexec/gnubin/ls -AhlFo --color --group-directories-first"
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
 alias c="clear"
+alias vim="nvim"
+alias v="nvim"
 
 # Directories
 alias dotfiles="cd $DOTFILES"
