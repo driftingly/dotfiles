@@ -3,7 +3,6 @@
 tap 'homebrew/cask'                 # https://github.com/Homebrew/homebrew-cask
 tap 'homebrew/cask-versions'        # https://github.com/Homebrew/homebrew-cask-versions
 tap 'homebrew/bundle'               # https://github.com/Homebrew/homebrew-bundle
-tap 'nicoverbruggen/homebrew-cask'  # https://github.com/nicoverbruggen/phpmon
 tap 'stripe/stripe-cli'             # https://github.com/stripe/stripe-cli
 
 # Binaries
@@ -11,6 +10,7 @@ brew 'ack'                              # https://formulae.brew.sh/formula/ack -
 brew 'bash'                             # https://formulae.brew.sh/formula/bash - Latest Bash version
 brew 'bat'                              # https://formulae.brew.sh/formula/bat - Clone of cat(1) with syntax highlighting and Git integration
 brew 'coreutils'                        # https://formulae.brew.sh/formula/coreutils - Those that come with macOS are outdated
+brew 'ffmpeg'                           # https://formulae.brew.sh/formula/ffmpeg - Play, record, convert, and stream audio and video
 brew 'gh'                               # https://formulae.brew.sh/formula/gh - GitHub command-line tool
 brew 'git'                              # https://formulae.brew.sh/formula/git - Distributed revision control system
 brew 'git-delta'                        # https://formulae.brew.sh/formula/git-delta - A syntax-highlighting pager for git and diff
@@ -35,12 +35,6 @@ brew 'svgo'
 brew 'gifsicle'
 
 # Development
-brew 'composer'
-brew 'imagemagick'
-brew 'php'
-brew 'php@8.1'
-brew 'php@8.0'
-brew 'nginx'
 brew 'node'
 brew 'yarn'
 brew 'yqrashawn/goku/goku'
@@ -62,11 +56,11 @@ cask 'github'
 cask 'google-chrome'
 cask 'grammarly'
 cask 'hammerspoon'
+cask 'herd'
 cask 'iterm2'
 cask 'karabiner-elements'
 cask 'notion'
 cask 'obsidian'
-cask 'phpmon'
 cask 'screenflow'
 cask 'ray'
 cask 'sizzy'
@@ -77,6 +71,8 @@ cask 'telegram'
 cask 'tinkerwell'
 cask 'todoist'
 cask 'visual-studio-code'
+cask 'warp'
+cask 'whatsapp'
 cask 'zoom'
 
 # Mac App Store
