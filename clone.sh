@@ -12,4 +12,3 @@ SITES=$HOME/Sites
 
 # Personal
 git clone git@github.com:driftingly/anthony.git $SITES/anthony
-git clone git@github.com:driftingly/getkindred.git $SITES/getkindred
