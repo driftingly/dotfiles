@@ -22,37 +22,6 @@ alias atest="artisan test --parallel"
 
 # PHP
 alias cfresh="rm -rf vendor/ composer.lock && composer i"
-alias composer="php -d memory_limit=-1 /opt/homebrew/bin/composer"
-
-php80() {
-    runphp 'php@8.0' "$@"
-}
-
-php81() {
-    runphp 'php@8.1' "$@"
-}
-
-php82() {
-    runphp 'php' "$@"
-}
-
-runphp() {
-    LATEST_VERSION=$(ls -1d /opt/homebrew/Cellar/$1/*/ | sort -r | head -n 1 | sed 's/\/$//')
-    PATH_TO_PHP=$(echo $LATEST_VERSION/bin/php)
-    $PATH_TO_PHP "${@:2}"
-}
-
-composer80() {
-    php80 -d memory_limit=-1 /opt/homebrew/bin/composer "$@"
-}
-
-composer81() {
-    php81 -d memory_limit=-1 /opt/homebrew/bin/composer "$@"
-}
-
-composer82() {
-    php82 -d memory_limit=-1 /opt/homebrew/bin/composer "$@"
-}
 
 # JS
 alias nfresh="rm -rf node_modules/ package-lock.json && npm install"
