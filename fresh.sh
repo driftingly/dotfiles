@@ -26,15 +26,6 @@ brew update
 brew tap homebrew/bundle
 brew bundle --file $DOTFILES/Brewfile
 
-# Install PHP extensions with PECL
-pecl install imagick redis swoole
-
-# Install global Composer packages
-/opt/homebrew/bin/composer global require laravel/installer laravel/valet beyondcode/expose tightenco/takeout squizlabs/php_codesniffer friendsofphp/php-cs-fixer phpstan/phpstan spatie/visit
-
-# Install Laravel Valet
-$HOME/.composer/vendor/bin/valet install
-
 # Add git config settings
 cat $DOTFILES/.gitconfig >> $HOME/.gitconfig
 
