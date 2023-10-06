@@ -21,7 +21,6 @@ brew 'hub'                              # https://formulae.brew.sh/formula/hub -
 brew 'jq'                               # https://formulae.brew.sh/formula/jq - Lightweight and flexible command-line JSON processor
 brew 'neovim'                           # https://formulae.brew.sh/formula/neovim - Vim-fork focused on extensibility and agility
 brew 'mackup'                           # https://formulae.brew.sh/formula/mackup - Backup and restore macOS applications and settings
-brew 'mas'                              # https://formulae.brew.sh/formula/mas - Mac App Store manager
 brew 'pkg-config'                       # https://formulae.brew.sh/formula/pkg-config - Manage compile and link flags for libraries https://github.com/driesvints/dotfiles/issues/20
 brew 'stripe/stripe-cli/stripe'         # https://github.com/stripe/stripe-cli - Stripe command-line interface
 brew 'stripe/stripe-mock/stripe-mock'   # https://github.com/stripe/stripe-mock - Stripe mock server
@@ -79,9 +78,3 @@ cask 'visual-studio-code-insiders'
 cask 'warp'
 cask 'whatsapp'
 cask 'zoom'
-
-# Mac App Store
-mas 'Gifox', id: 1461845568
-mas 'Pixelmator Pro', id: 1289583905
-mas 'Twitter', id: 1482454543
-mas 'Time Sink', id: 1494023538
