@@ -4,6 +4,7 @@ tap 'homebrew/cask'                 # https://github.com/Homebrew/homebrew-cask
 tap 'homebrew/cask-versions'        # https://github.com/Homebrew/homebrew-cask-versions
 tap 'homebrew/bundle'               # https://github.com/Homebrew/homebrew-bundle
 tap 'stripe/stripe-cli'             # https://github.com/stripe/stripe-cli
+tap 'yqrashawn/goku'                # https://github.com/yqrashawn/homebrew-goku
 
 # Binaries
 brew 'ack'                              # https://formulae.brew.sh/formula/ack - Search tool like grep, but optimized for programmers
