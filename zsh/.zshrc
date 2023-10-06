@@ -1,6 +1,3 @@
-# Path to your dotfiles.
-export DOTFILES=$HOME/.dotfiles
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -71,7 +68,7 @@ HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # This loads the other *.zsh files
-ZSH_CUSTOM=$DOTFILES/zsh
+ZSH_CUSTOM=$HOME/.dotfiles/zsh
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*

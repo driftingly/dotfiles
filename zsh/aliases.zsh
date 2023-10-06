@@ -10,7 +10,7 @@ alias vim="nvim"
 alias v="nvim"
 
 # Directories
-alias dotfiles="cd $DOTFILES"
+alias dotfiles="cd $HOME/.dotfiles"
 alias library="cd $HOME/Library"
 alias sites="cd $HOME/Sites"
 
