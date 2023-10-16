@@ -36,6 +36,7 @@ brew 'gifsicle'
 
 # Development
 brew 'node'
+brew 'nodenv'
 brew 'yarn'
 brew 'yqrashawn/goku/goku'
 
