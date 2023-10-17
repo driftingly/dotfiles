@@ -35,8 +35,8 @@ mkdir $HOME/Sites
 # Clone Github repositories
 $HOME/.dotfiles/clone.sh
 
-# # Set up GitHub Copilot CLI
-npm i @githubnext/github-copilot-cli
+# Set up GitHub Copilot CLI
+npm install -g @githubnext/github-copilot-cli
 
 # Symlink the Mackup config file to the home directory
 ln -s $HOME/.dotfiles/.mackup.cfg $HOME/.mackup.cfg

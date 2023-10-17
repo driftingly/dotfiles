@@ -1,6 +1,8 @@
 [user]
     name = Anthony Clark
     email = anthonyclark@gmail.com
+[init]
+    defaultBranch = main
 [core]
     excludesfile = ~/.dotfiles/.gitignore_global
     pager = delta
