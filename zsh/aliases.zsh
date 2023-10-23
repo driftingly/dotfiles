@@ -19,6 +19,7 @@ alias a="php artisan"
 alias fresh="php artisan migrate:fresh --seed"
 alias seed="php artisan db:seed"
 alias atest="artisan test --parallel"
+alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 
 # PHP
 alias cfresh="rm -rf vendor/ composer.lock && composer i"
