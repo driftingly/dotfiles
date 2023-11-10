@@ -36,6 +36,8 @@
     p = "pull"
     # reset head hard
     rshh="reset head --hard"
+    # nah - https://laravel-news.com/the-ultimate-git-nah-alias
+    nah = "!f(){ git reset --hard; git clean -df; if [ -d ".git/rebase-apply" ] || [ -d ".git/rebase-merge" ]; then git rebase --abort; fi; }; f"
     # nice log
     l = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
     # Rebase against the $remote $branch
