@@ -45,6 +45,11 @@
     # wip it up
     wipup = "!git add . && git commit -m wip && git push"
 
+    # https://laravel-news.com/five-ways-to-be-more-productive-with-git
+    forget="!git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D"
+    forgetlist="!git fetch -p && git branch -vv | awk '/: gone]/{print $1}'"
+    uncommit = reset --soft HEAD~1
+
     # https://softwaredoug.com/blog/2022/11/09/idiot-proof-git-aliases.html
     # Rebase workflow
     mainbranch = "!git remote show origin | sed -n '/HEAD branch/s/.*: //p'"
