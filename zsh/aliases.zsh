@@ -15,14 +15,25 @@ alias library="cd $HOME/Library"
 alias sites="cd $HOME/Sites"
 
 # Laravel
-alias a="php artisan"
-alias fresh="php artisan migrate:fresh --seed"
-alias seed="php artisan db:seed"
-alias atest="artisan test --parallel"
+alias a="herd php artisan"
+alias fresh="herd php artisan migrate:fresh --seed"
+alias tinker="herd php artisan tinker"
+alias seed="herd php artisan db:seed"
+alias atest="herd php artisan test --parallel"
+alias serve="herd php artisan serve"
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+alias vapor="php vendor/bin/vapor"
 
 # PHP
 alias cfresh="rm -rf vendor/ composer.lock && composer i"
+alias php="herd php"
+alias composer="herd composer"
+
+alias php74="~/Library/Application\ Support/Herd/bin/php74"
+alias php80="~/Library/Application Support/Herd/bin/php80"
+alias php81="~/Library/Application Support/Herd/bin/php81"
+alias php82="~/Library/Application Support/Herd/bin/php82"
+alias php83="~/Library/Application Support/Herd/bin/php83"
 
 # JS
 alias nfresh="rm -rf node_modules/ package-lock.json && npm install"
