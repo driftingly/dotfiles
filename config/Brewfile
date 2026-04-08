@@ -1,0 +1,77 @@
+# Taps
+tap 'stripe/stripe-cli'             # https://github.com/stripe/stripe-cli
+
+# Binaries
+brew 'bash'                             # https://formulae.brew.sh/formula/bash - Latest Bash version
+brew 'bat'                              # https://formulae.brew.sh/formula/bat - Cat clone with syntax highlighting and Git integration
+brew 'bottom'                           # https://formulae.brew.sh/formula/bottom - Modern top/htop replacement (`btm`)
+brew 'coreutils'                        # https://formulae.brew.sh/formula/coreutils - GNU file, shell, and text utilities
+brew 'direnv'                           # https://formulae.brew.sh/formula/direnv - Per-directory environment variables via .envrc
+brew 'eza'                              # https://formulae.brew.sh/formula/eza - Modern, maintained replacement for ls
+brew 'fd'                               # https://formulae.brew.sh/formula/fd - Simple, fast, user-friendly alternative to find
+brew 'ffmpeg'                           # https://formulae.brew.sh/formula/ffmpeg - Play, record, convert, and stream audio and video
+brew 'fnm'                              # https://formulae.brew.sh/formula/fnm - Fast Node.js version manager
+brew 'fzf'                              # https://formulae.brew.sh/formula/fzf - Command-line fuzzy finder
+brew 'gh'                               # https://formulae.brew.sh/formula/gh - GitHub command-line tool
+brew 'ghostscript'                      # https://formulae.brew.sh/formula/ghostscript - PostScript/PDF interpreter (imagemagick PDF support)
+brew 'git'                              # https://formulae.brew.sh/formula/git - Distributed revision control system
+brew 'git-delta'                        # https://formulae.brew.sh/formula/git-delta - Syntax-highlighting pager for git diffs
+brew 'httpie'                           # https://formulae.brew.sh/formula/httpie - User-friendly cURL replacement
+brew 'imagemagick'                      # https://formulae.brew.sh/formula/imagemagick - Image manipulation toolkit
+brew 'jq'                               # https://formulae.brew.sh/formula/jq - JSON processor
+brew 'ncdu'                             # https://formulae.brew.sh/formula/ncdu - Interactive disk usage TUI
+brew 'neovim'                           # https://formulae.brew.sh/formula/neovim - Vim-fork focused on extensibility and agility
+brew 'pkg-config'                       # https://formulae.brew.sh/formula/pkg-config - Manage compile and link flags for libraries
+brew 'ripgrep'                          # https://formulae.brew.sh/formula/ripgrep - Fast recursive search (rg)
+brew 'trash'                            # https://formulae.brew.sh/formula/trash - Manage the Trash bin
+brew 'tree'                             # https://formulae.brew.sh/formula/tree - List directories in a tree structure
+brew 'wget'                             # https://formulae.brew.sh/formula/wget - Internet file retriever
+brew 'yq'                               # https://formulae.brew.sh/formula/yq - YAML processor (jq for YAML)
+brew 'zoxide'                           # https://formulae.brew.sh/formula/zoxide - Smarter cd command (`z`)
+brew 'zsh-autosuggestions'              # https://formulae.brew.sh/formula/zsh-autosuggestions - Fish-style autosuggestions for zsh
+brew 'zsh-syntax-highlighting'          # https://formulae.brew.sh/formula/zsh-syntax-highlighting - Fish-style syntax highlighting for zsh
+brew 'stripe/stripe-cli/stripe'         # https://github.com/stripe/stripe-cli - Stripe command-line interface
+brew 'stripe/stripe-mock/stripe-mock'   # https://github.com/stripe/stripe-mock - Stripe mock server
+
+# Apps
+cask '1password'
+cask '1password-cli'
+cask 'arc'
+cask 'bike'
+cask 'claude'
+cask 'claude-code'
+cask 'cleanshot'
+cask 'daisydisk'
+cask 'discord'
+cask 'docker'
+cask 'elgato-control-center'
+cask 'elgato-stream-deck'
+cask 'firefox'
+cask 'ghostty'
+cask 'google-chrome'
+cask 'grammarly'
+cask 'herd'
+cask 'imageoptim'
+cask 'keysmith'
+cask 'logi-options-plus'
+cask 'logi-tune'
+cask 'meetingbar'
+cask 'microsoft-teams'
+cask 'monologue'
+cask 'moom'
+cask 'obs'
+cask 'obsidian'
+cask 'ray'
+cask 'raycast'
+cask 'screenflow'
+cask 'slack'
+cask 'spotify'
+cask 'sublime-merge'
+cask 'tableplus'
+cask 'telegram'
+cask 'tinkerwell'
+cask 'todoist'
+cask 'visual-studio-code'
+cask 'vlc'
+cask 'whatsapp'
+cask 'zoom'

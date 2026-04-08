@@ -1,0 +1,129 @@
+#!/bin/bash
+#
+# Install dotfiles
+
+set -e
+
+# Colors
+BLUE='\033[0;34m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+NC='\033[0m'
+
+step()    { echo ""; echo -e "${BLUE}➜${NC} $1"; }
+success() { echo -e "${GREEN}✓${NC} $1"; }
+warn()    { echo -e "${YELLOW}⚠${NC} $1"; }
+error()   { echo -e "${RED}✗${NC} $1"; exit 1; }
+
+echo ""
+step "Install Dotfiles"
+echo ""
+warn "This will install/update your terminal setup"
+echo ""
+read -p "Continue? (y/n) " -n 1 -r
+echo ""
+
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    echo ""
+    step "Cancelled"
+    echo ""
+    exit 0
+fi
+
+echo ""
+sudo -v
+
+# Oh My Zsh
+step "Installing Oh My Zsh"
+if [ ! -d ~/.oh-my-zsh ]; then
+    /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)" "" --unattended || warn "Oh My Zsh installation failed"
+fi
+success "Oh My Zsh installed"
+
+# Homebrew
+step "Installing Homebrew"
+if ! command -v brew &>/dev/null; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+success "Homebrew installed"
+
+# Zsh custom plugins without a Homebrew formula (idempotent, cloned before
+# the .zshrc symlink so the shell finds them on first load).
+# zsh-autosuggestions and zsh-syntax-highlighting come from the Brewfile.
+step "Cloning Zsh plugins"
+ZSH_CUSTOM_PLUGINS=~/.dotfiles/zsh/plugins
+clone_plugin() {
+    local target="$ZSH_CUSTOM_PLUGINS/$1"
+    [ -d "$target" ] || git clone --depth 1 "$2" "$target" || warn "Failed to clone $1"
+}
+clone_plugin artisan https://github.com/jessarcher/zsh-artisan.git
+clone_plugin git-open https://github.com/paulirish/git-open.git
+success "Zsh plugins cloned"
+
+# Symlinks
+step "Creating symlinks"
+rm -f ~/.zshrc
+ln -sf ~/.dotfiles/zsh/.zshrc ~/.zshrc
+rm -f ~/.zcompdump*
+
+mkdir -p ~/.config/ghostty
+ln -sf ~/.dotfiles/config/ghostty/config ~/.config/ghostty/config
+
+mkdir -p ~/.claude
+ln -sf ~/.dotfiles/config/claude/CLAUDE.md                 ~/.claude/CLAUDE.md
+ln -sf ~/.dotfiles/config/claude/laravel-php-guidelines.md ~/.claude/laravel-php-guidelines.md
+ln -sf ~/.dotfiles/config/claude/settings.json             ~/.claude/settings.json
+ln -sf ~/.dotfiles/config/claude/statusline.sh             ~/.claude/statusline.sh
+rm -rf ~/.claude/agents ~/.claude/skills
+ln -s ~/.dotfiles/config/claude/agents ~/.claude/agents
+ln -s ~/.dotfiles/config/claude/skills ~/.claude/skills
+success "Symlinks created"
+
+# Git configuration
+step "Configuring Git"
+cat ~/.dotfiles/.gitconfig >> ~/.gitconfig
+success "Git configured"
+
+# Homebrew packages
+step "Installing packages from Brewfile"
+brew update
+brew bundle --file=~/.dotfiles/config/Brewfile || warn "Some packages failed (likely already installed)"
+success "Brewfile processed"
+
+# fzf shell integration (creates ~/.fzf.zsh with keybindings + completion)
+step "Setting up fzf shell integration"
+if [ -x "$(brew --prefix)/opt/fzf/install" ]; then
+    "$(brew --prefix)/opt/fzf/install" --key-bindings --completion --no-update-rc --no-bash --no-fish || warn "fzf integration failed"
+fi
+success "fzf integration installed"
+
+# Global npm packages
+step "Installing global npm packages"
+if command -v fnm &>/dev/null; then
+    eval "$(fnm env --use-on-cd)" || warn "fnm activation failed"
+    fnm install --lts || warn "fnm install failed"
+    fnm use lts-latest || warn "fnm use failed"
+fi
+npm install -g agent-browser || warn "agent-browser already installed or failed"
+agent-browser install 2>/dev/null || warn "agent-browser setup skipped"
+success "npm packages processed"
+
+# Code directory
+step "Creating Code directory"
+mkdir -p ~/Code
+success "Code directory ready"
+
+# macOS defaults
+step "Applying macOS defaults"
+source ~/.dotfiles/.macos
+success "macOS defaults applied"
+
+# Done
+echo ""
+success "Installation complete!"
+echo ""
+warn "Restart your terminal for all changes to take effect"
+echo ""

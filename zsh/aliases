@@ -1,0 +1,77 @@
+# Shortcuts
+alias copyssh="pbcopy < $HOME/.ssh/id_ed25519.pub"
+alias getssh=copyssh
+alias reloadshell="source $HOME/.zshrc"
+alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+alias ll="/opt/homebrew/opt/coreutils/libexec/gnubin/ls -AhlFo --color --group-directories-first"
+alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
+alias c="clear"
+alias vim="nvim"
+alias v="nvim"
+
+# Directories
+alias dotfiles="cd $HOME/.dotfiles"
+alias library="cd $HOME/Library"
+alias dev="cd $HOME/Code"
+
+# Laravel
+alias a="herd php artisan"
+alias fresh="herd php artisan migrate:fresh --seed"
+alias tinker="herd php artisan tinker"
+alias seed="herd php artisan db:seed"
+alias atest="herd php artisan test --parallel"
+alias serve="herd php artisan serve"
+alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+
+# PHP
+alias cfresh="rm -rf vendor/ composer.lock && composer i"
+alias php="herd php"
+alias composer="herd composer"
+alias hostfile="sudo vi /etc/hosts"
+
+alias php80="~/Library/Application Support/Herd/bin/php80"
+alias php81="~/Library/Application Support/Herd/bin/php81"
+alias php82="~/Library/Application Support/Herd/bin/php82"
+alias php83="~/Library/Application Support/Herd/bin/php83"
+
+# JS
+alias nmfresh="rm -rf node_modules/ package-lock.json && npm install"
+
+# Git
+alias gst="git status"
+alias gb="git branch"
+alias gc="git checkout"
+alias switch="git switch"
+alias gl="git log --oneline --decorate --color"
+alias amend="git add . && git commit --amend --no-edit"
+alias nuke="git clean -df && git reset --hard"
+alias pop="git stash pop"
+alias pull="git pull"
+alias push="git push"
+alias resolve="git add . && git commit --no-edit"
+alias stash="git stash -u"
+alias unstage="git restore --staged ."
+alias wip="commit wip"
+alias prune-dry="git remote prune origin --dry-run"
+alias prune="git remote prune origin"
+
+# Modern CLI tool aliases (conditional on installation)
+if command -v eza &> /dev/null; then
+    alias ls="eza --icons --group-directories-first"
+    alias l="eza -la --icons --group-directories-first --hyperlink"
+    alias ll="eza -l --icons --group-directories-first --hyperlink"
+    alias lt="eza --tree --level=2 --icons"
+fi
+
+if command -v bat &> /dev/null; then
+    alias cat="bat --style=plain"
+fi
+
+if command -v rg &> /dev/null; then
+    alias grep="rg"
+fi
+
+if command -v bottom &> /dev/null; then
+    alias htop="btm"
+    alias top="btm"
+fi
