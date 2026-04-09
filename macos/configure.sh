@@ -187,7 +187,8 @@ defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 # Show the ~/Library folder
-chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library 2>/dev/null
+chflags nohidden ~/Library || true
+xattr -d com.apple.FinderInfo ~/Library 2>/dev/null || true
 
 # Expand the following File Info panes:
 # "General", "Open with", and "Sharing & Permissions"
