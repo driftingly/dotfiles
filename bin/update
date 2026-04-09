@@ -34,7 +34,7 @@ success "Homebrew packages updated"
 # Update Oh My Zsh
 step "Updating Oh My Zsh"
 if [ -d ~/.oh-my-zsh ]; then
-    env ZSH=~/.oh-my-zsh sh ~/.oh-my-zsh/tools/upgrade.sh || warn "Oh My Zsh update failed"
+    env ZSH=~/.oh-my-zsh zsh ~/.oh-my-zsh/tools/upgrade.sh || warn "Oh My Zsh update failed"
 fi
 success "Oh My Zsh updated"
 
@@ -47,7 +47,12 @@ success "Zsh plugins updated"
 
 # Update global npm packages
 step "Updating global npm packages"
-npm update -g || warn "npm update failed"
+if command -v fnm &>/dev/null; then
+    eval "$(fnm env --use-on-cd)"
+    npm update -g || warn "npm update failed"
+else
+    warn "fnm not found — skipping global npm packages"
+fi
 success "npm packages updated"
 
 # Done
