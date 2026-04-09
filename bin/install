@@ -85,7 +85,7 @@ success "Symlinks created"
 # Git configuration
 step "Configuring Git"
 rm -f ~/.gitconfig
-ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
+ln -sf ~/.dotfiles/git/.gitconfig ~/.gitconfig
 success "Git configured"
 
 # Homebrew packages
@@ -121,7 +121,7 @@ success "Code directory ready"
 
 # macOS defaults
 step "Applying macOS defaults"
-source ~/.dotfiles/.macos
+source ~/.dotfiles/macos/configure.sh
 success "macOS defaults applied"
 
 # Done
