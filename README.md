@@ -73,6 +73,7 @@ zsh/              .zshrc, aliases, exports, functions
 
 ### Other (manual download or in-app install)
 
+- [Grammarly](https://www.grammarly.com/desktop)
 - Actions For Obsidian — Obsidian community plugin, installed from inside Obsidian
 - Browser Actions — Safari extension
 - Polyscope
