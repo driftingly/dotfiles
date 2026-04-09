@@ -31,7 +31,7 @@ function removehost() {
 
 function scheduler() {
    while :; do
-      php artisan schedule:run
+      herd php artisan schedule:run
       echo "Sleeping 60 seconds..."
       sleep 60
    done
@@ -82,7 +82,7 @@ function commit() {
      return
   fi
 
-  eval "git commit -a -m '${commitMessage}'"
+  git commit -a -m "$commitMessage"
 }
 
 # Opens database in applications like TablePlus

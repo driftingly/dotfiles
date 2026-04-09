@@ -45,7 +45,6 @@ If you want to script these, the pattern is:
 
 ```
 brew 'mas'
-mas '1Password 7 - Password Manager', id: 1333542190
 mas 'Numbers', id: 409203825
 mas 'Xcode',   id: 497799835
 # etc.

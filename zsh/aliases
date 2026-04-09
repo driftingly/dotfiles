@@ -3,7 +3,6 @@ alias copyssh="pbcopy < $HOME/.ssh/id_ed25519.pub"
 alias getssh=copyssh
 alias reloadshell="source $HOME/.zshrc"
 alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias ll="/opt/homebrew/opt/coreutils/libexec/gnubin/ls -AhlFo --color --group-directories-first"
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
 alias c="clear"
 alias vim="nvim"
@@ -29,10 +28,12 @@ alias php="herd php"
 alias composer="herd composer"
 alias hostfile="sudo vi /etc/hosts"
 
-alias php80="~/Library/Application Support/Herd/bin/php80"
-alias php81="~/Library/Application Support/Herd/bin/php81"
-alias php82="~/Library/Application Support/Herd/bin/php82"
-alias php83="~/Library/Application Support/Herd/bin/php83"
+php80() { "$HOME/Library/Application Support/Herd/bin/php80" "$@"; }
+php81() { "$HOME/Library/Application Support/Herd/bin/php81" "$@"; }
+php82() { "$HOME/Library/Application Support/Herd/bin/php82" "$@"; }
+php83() { "$HOME/Library/Application Support/Herd/bin/php83" "$@"; }
+php84() { "$HOME/Library/Application Support/Herd/bin/php84" "$@"; }
+php85() { "$HOME/Library/Application Support/Herd/bin/php85" "$@"; }
 
 # JS
 alias nmfresh="rm -rf node_modules/ package-lock.json && npm install"

@@ -1,13 +1,11 @@
-# Make vim the default editor
-export EDITOR="vim"
+# Make nvim the default editor
+export EDITOR="nvim"
 
-# Larger bash history (allow 32³ entries; default is 500)
+# Larger history (32k entries; default is 500). Persisted via SAVEHIST.
 export HISTSIZE=32768
-export HISTFILESIZE=$HISTSIZE
-export HISTCONTROL=ignoredups
-# Make some commands not show up in history
-export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
-# And include the parameter for ZSH
+export SAVEHIST=$HISTSIZE
+setopt HIST_IGNORE_DUPS HIST_IGNORE_SPACE SHARE_HISTORY
+# Skip noisy commands from history
 export HISTORY_IGNORE="(ls|cd|cd -|pwd|exit|date|* --help)"
 
 # Prefer US English and use UTF-8
@@ -28,9 +26,6 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 
 # Composer global bin
 export PATH="$HOME/.composer/vendor/bin:$PATH"
-
-# Project-local binaries take precedence over globals
-export PATH="node_modules/.bin:vendor/bin:$PATH"
 
 # VS Code CLI
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"

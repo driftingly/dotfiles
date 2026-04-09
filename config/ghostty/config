@@ -1,5 +1,5 @@
 term = xterm-256color
-working-directory = /Users/anthony/Code
+working-directory = ~/Code
 cursor-style = block
 shell-integration-features = no-cursor
 palette = 2=#5ccd86

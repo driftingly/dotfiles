@@ -84,7 +84,8 @@ success "Symlinks created"
 
 # Git configuration
 step "Configuring Git"
-cat ~/.dotfiles/.gitconfig >> ~/.gitconfig
+rm -f ~/.gitconfig
+ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
 success "Git configured"
 
 # Homebrew packages
@@ -106,9 +107,11 @@ if command -v fnm &>/dev/null; then
     eval "$(fnm env --use-on-cd)" || warn "fnm activation failed"
     fnm install --lts || warn "fnm install failed"
     fnm use lts-latest || warn "fnm use failed"
+    npm install -g agent-browser || warn "agent-browser already installed or failed"
+    agent-browser install 2>/dev/null || warn "agent-browser setup skipped"
+else
+    warn "fnm not found — skipping global npm packages"
 fi
-npm install -g agent-browser || warn "agent-browser already installed or failed"
-agent-browser install 2>/dev/null || warn "agent-browser setup skipped"
 success "npm packages processed"
 
 # Code directory

@@ -31,6 +31,20 @@ brew bundle --file=~/.dotfiles/config/Brewfile
 brew cleanup
 success "Homebrew packages updated"
 
+# Update Oh My Zsh
+step "Updating Oh My Zsh"
+if [ -d ~/.oh-my-zsh ]; then
+    env ZSH=~/.oh-my-zsh sh ~/.oh-my-zsh/tools/upgrade.sh || warn "Oh My Zsh update failed"
+fi
+success "Oh My Zsh updated"
+
+# Update manually-cloned zsh plugins
+step "Updating zsh plugins"
+for plugin in ~/.dotfiles/zsh/plugins/*/; do
+    [ -d "$plugin/.git" ] && git -C "$plugin" pull --ff-only || warn "Failed to update $(basename "$plugin")"
+done
+success "Zsh plugins updated"
+
 # Update global npm packages
 step "Updating global npm packages"
 npm update -g || warn "npm update failed"

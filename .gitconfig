@@ -10,14 +10,13 @@
     diffFilter = delta --color-only
 [delta]
     navigate = true
-[merge]
-    conflictstyle = diff3
-[diff]
-    colorMoved = default
-[delta]
     light = true
     syntax-theme = GitHub
     line-numbers = true
+[merge]
+    conflictstyle = zdiff3
+[diff]
+    colorMoved = default
 [push]
     default = current
     autoSetupRemote = true
@@ -25,6 +24,10 @@
     prune = true
 [pull]
     rebase = true
+[rerere]
+    enabled = true
+[column]
+    ui = auto
 [alias]
     # branch and checkout
     take ="checkout -b"
@@ -58,7 +61,6 @@
     squash = "!git rebase -v -i $(git mainbranch)"
     publish = push origin HEAD --force-with-lease
     pub = publish
-    ammend = commit --amend
     amend = commit --amend
 
     # Github - From https://salferrarello.com/git-alias-open-pull-request-github/
