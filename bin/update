@@ -49,6 +49,7 @@ success "Zsh plugins updated"
 step "Updating global npm packages"
 if command -v fnm &>/dev/null; then
     eval "$(fnm env --use-on-cd)"
+    fnm use lts-latest || warn "fnm use failed"
     npm update -g || warn "npm update failed"
 else
     warn "fnm not found — skipping global npm packages"
