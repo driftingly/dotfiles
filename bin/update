@@ -45,6 +45,12 @@ for plugin in ~/.dotfiles/zsh/plugins/*/; do
 done
 success "Zsh plugins updated"
 
+# Ensure local zshrc override exists
+step "Checking .zshrc.local"
+[ -f ~/.dotfiles/zsh/.zshrc.local ] || touch ~/.dotfiles/zsh/.zshrc.local
+ln -sf ~/.dotfiles/zsh/.zshrc.local ~/.zshrc.local
+success ".zshrc.local ready"
+
 # Update global npm packages
 step "Updating global npm packages"
 if command -v fnm &>/dev/null; then

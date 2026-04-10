@@ -67,6 +67,8 @@ success "Zsh plugins cloned"
 step "Creating symlinks"
 rm -f ~/.zshrc
 ln -sf ~/.dotfiles/zsh/.zshrc ~/.zshrc
+[ -f ~/.dotfiles/zsh/.zshrc.local ] || touch ~/.dotfiles/zsh/.zshrc.local
+ln -sf ~/.dotfiles/zsh/.zshrc.local ~/.zshrc.local
 rm -f ~/.zcompdump*
 
 mkdir -p ~/.config/ghostty
