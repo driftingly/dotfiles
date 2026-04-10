@@ -44,5 +44,8 @@ command -v fnm    &>/dev/null && eval "$(fnm env --use-on-cd)"
 command -v direnv &>/dev/null && eval "$(direnv hook zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Source machine-local overrides if present (not committed to dotfiles)
-[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
+# Herd injected PHP 8.4 configuration.
+export HERD_PHP_84_INI_SCAN_DIR="/Users/anthony/Library/Application Support/Herd/config/php/84/"
+
+# Herd injected PHP binary.
+export PATH="/Users/anthony/Library/Application Support/Herd/bin/":$PATH
