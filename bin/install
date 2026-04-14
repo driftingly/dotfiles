@@ -96,6 +96,17 @@ brew update
 brew bundle --file=~/.dotfiles/config/Brewfile || warn "Some packages failed (likely already installed)"
 success "Brewfile processed"
 
+# Run installer-type casks that brew bundle can't auto-install
+step "Checking installer-type casks"
+if [ ! -d "/Applications/LogiTune.app" ]; then
+    installer=$(find /opt/homebrew/Caskroom/logitune -name "LogiTuneInstaller.app" -maxdepth 2 2>/dev/null | head -1)
+    if [ -n "$installer" ]; then
+        warn "LogiTune needs manual installation — opening installer"
+        open "$installer"
+    fi
+fi
+success "Installer-type casks checked"
+
 # fzf shell integration (creates ~/.fzf.zsh with keybindings + completion)
 step "Setting up fzf shell integration"
 if [ -x "$(brew --prefix)/opt/fzf/install" ]; then

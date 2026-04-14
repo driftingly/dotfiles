@@ -31,6 +31,17 @@ brew bundle --file=~/.dotfiles/config/Brewfile
 brew cleanup
 success "Homebrew packages updated"
 
+# Run installer-type casks that brew bundle can't auto-install
+step "Checking installer-type casks"
+if [ ! -d "/Applications/LogiTune.app" ]; then
+    installer=$(find /opt/homebrew/Caskroom/logitune -name "LogiTuneInstaller.app" -maxdepth 2 2>/dev/null | head -1)
+    if [ -n "$installer" ]; then
+        warn "LogiTune needs manual installation — opening installer"
+        open "$installer"
+    fi
+fi
+success "Installer-type casks checked"
+
 # Update Oh My Zsh
 step "Updating Oh My Zsh"
 if [ -d ~/.oh-my-zsh ]; then
