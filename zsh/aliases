@@ -7,6 +7,7 @@ alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
 alias c="clear"
 alias vim="nvim"
 alias v="nvim"
+alias update="$HOME/.dotfiles/bin/update"
 
 # Directories
 alias dotfiles="cd $HOME/.dotfiles"
