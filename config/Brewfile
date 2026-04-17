@@ -2,7 +2,7 @@
 tap 'stripe/stripe-cli'                 # https://github.com/stripe/stripe-cli
 
 # Fonts
-cask 'font-monaspace'                   # https://github.com/githubnext/monaspace - Monospace font superfamily
+cask 'font-monaspace-nerd-font'         # https://github.com/githubnext/monaspace - Monaspace with Nerd Font icons
 
 # Binaries
 brew 'bash'                             # https://formulae.brew.sh/formula/bash - Latest Bash version
