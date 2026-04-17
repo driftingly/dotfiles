@@ -1,5 +1,8 @@
 # Taps
-tap 'stripe/stripe-cli'             # https://github.com/stripe/stripe-cli
+tap 'stripe/stripe-cli'                 # https://github.com/stripe/stripe-cli
+
+# Fonts
+cask 'font-monaspace'                   # https://github.com/githubnext/monaspace - Monospace font superfamily
 
 # Binaries
 brew 'bash'                             # https://formulae.brew.sh/formula/bash - Latest Bash version
@@ -21,7 +24,7 @@ brew 'imagemagick'                      # https://formulae.brew.sh/formula/image
 brew 'jq'                               # https://formulae.brew.sh/formula/jq - JSON processor
 brew 'ncdu'                             # https://formulae.brew.sh/formula/ncdu - Interactive disk usage TUI
 brew 'neovim'                           # https://formulae.brew.sh/formula/neovim - Vim-fork focused on extensibility and agility
-brew 'pkg-config'                       # https://formulae.brew.sh/formula/pkg-config - Manage compile and link flags for libraries
+brew 'pkg-config'                        # https://formulae.brew.sh/formula/pkg-config - Manage compile and link flags for libraries
 brew 'ripgrep'                          # https://formulae.brew.sh/formula/ripgrep - Fast recursive search (rg)
 brew 'trash'                            # https://formulae.brew.sh/formula/trash - Manage the Trash bin
 brew 'tree'                             # https://formulae.brew.sh/formula/tree - List directories in a tree structure
