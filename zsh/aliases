@@ -59,10 +59,10 @@ alias prune="git remote prune origin"
 
 # Modern CLI tool aliases (conditional on installation)
 if command -v eza &> /dev/null; then
-    alias ls="eza --icons --group-directories-first"
-    alias l="eza -la --icons --group-directories-first --hyperlink"
-    alias ll="eza -l --icons --group-directories-first --hyperlink"
-    alias lt="eza --tree --level=2 --icons"
+    alias ls="eza --icons=auto --group-directories-first"
+    alias l="eza -la --icons=auto --group-directories-first --hyperlink"
+    alias ll="eza -l --icons=auto --group-directories-first --hyperlink"
+    alias lt="eza --tree --level=2 --icons=auto"
 fi
 
 if command -v bat &> /dev/null; then
