@@ -11,6 +11,7 @@ alias update="$HOME/.dotfiles/bin/update"
 
 # Directories
 alias dotfiles="cd $HOME/.dotfiles"
+alias dotfiles-code="code $HOME/.dotfiles"
 alias library="cd $HOME/Library"
 alias dev="cd $HOME/Code"
 
