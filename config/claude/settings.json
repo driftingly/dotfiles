@@ -62,7 +62,7 @@
       "mcp__chrome-devtools__*",
       "mcp__laravel-boost__*"
     ],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "default"
   },
   "statusLine": {
     "type": "command",
@@ -73,6 +73,7 @@
     "agent-browser@agent-browser": true
   },
   "alwaysThinkingEnabled": true,
-  "skipDangerousModePermissionPrompt": true,
-  "effortLevel": "high"
+  "effortLevel": "high",
+  "skipDangerousModePermissionPrompt": false,
+  "skipAutoPermissionPrompt": false
 }
