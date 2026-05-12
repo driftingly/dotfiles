@@ -62,7 +62,7 @@
       "mcp__chrome-devtools__*",
       "mcp__laravel-boost__*"
     ],
-    "defaultMode": "default"
+    "defaultMode": "auto"
   },
   "statusLine": {
     "type": "command",
@@ -84,5 +84,5 @@
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
   "skipDangerousModePermissionPrompt": false,
-  "skipAutoPermissionPrompt": false
+  "skipAutoPermissionPrompt": true
 }
