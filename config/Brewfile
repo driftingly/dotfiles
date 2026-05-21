@@ -5,6 +5,7 @@ tap 'stripe/stripe-cli'                 # https://github.com/stripe/stripe-cli
 cask 'font-monaspice-nerd-font'         # https://github.com/githubnext/monaspace - Monaspace with Nerd Font icons
 
 # Binaries
+brew 'assimp'                           # https://formulae.brew.sh/formula/assimp - Portable library for importing 3D model formats
 brew 'bash'                             # https://formulae.brew.sh/formula/bash - Latest Bash version
 brew 'bat'                              # https://formulae.brew.sh/formula/bat - Cat clone with syntax highlighting and Git integration
 brew 'bottom'                           # https://formulae.brew.sh/formula/bottom - Modern top/htop replacement (`btm`)
