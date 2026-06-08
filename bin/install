@@ -92,6 +92,7 @@ success "Git configured"
 
 # Homebrew packages
 step "Installing packages from Brewfile"
+brew trust --tap stripe/stripe-cli stripe/stripe-mock upsun/tap || warn "brew trust failed"
 brew update
 brew bundle --file=~/.dotfiles/config/Brewfile || warn "Some packages failed (likely already installed)"
 success "Brewfile processed"

@@ -25,6 +25,7 @@ success "Dotfiles updated"
 
 # Update Homebrew and packages
 step "Updating Homebrew packages"
+brew trust --tap stripe/stripe-cli stripe/stripe-mock upsun/tap || warn "brew trust failed"
 brew update
 brew upgrade
 brew bundle --file=~/.dotfiles/config/Brewfile
