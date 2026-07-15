@@ -37,6 +37,8 @@ Thumbs.db
 
 # Claude
 .claude/settings.local.json
+superpowers
+.superpowers
 
 # Scratch
 .scratch
