@@ -73,7 +73,8 @@
     "agent-browser@agent-browser": true,
     "skill-creator@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true
+    "frontend-design@claude-plugins-official": true,
+    "shift@laravel-shift": true
   },
   "extraKnownMarketplaces": {
     "anthropic-agent-skills": {
@@ -81,12 +82,18 @@
         "source": "github",
         "repo": "anthropics/skills"
       }
+    },
+    "laravel-shift": {
+      "source": {
+        "source": "github",
+        "repo": "laravel-shift/shift-ai"
+      }
     }
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": false,
-  "skipAutoPermissionPrompt": true,
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true
 }
