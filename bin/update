@@ -64,11 +64,16 @@ ln -sf ~/.dotfiles/zsh/.zshrc.local ~/.zshrc.local
 success ".zshrc.local ready"
 
 # Update global npm packages
+# `npm install -g` rather than `npm update -g`: fnm keeps globals per Node
+# version, so a package missing from the active version needs installing, not
+# updating. Keep the list in sync with bin/install.
 step "Updating global npm packages"
 if command -v fnm &>/dev/null; then
     eval "$(fnm env --use-on-cd)"
     fnm use lts-latest || warn "fnm use failed"
-    npm update -g || warn "npm update failed"
+    npm install -g agent-browser defuddle || warn "Global npm install failed"
+    agent-browser install 2>/dev/null || warn "agent-browser setup skipped"
+    npx -y skills@latest update -g -y || warn "Skill update failed"
 else
     warn "fnm not found — skipping global npm packages"
 fi

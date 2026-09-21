@@ -99,7 +99,7 @@ success "Brewfile processed"
 
 # Run installer-type casks that brew bundle can't auto-install
 step "Checking installer-type casks"
-if [ ! -d "/Applications/LogiTune.app" ]; then
+if [ ! -d "/Applications/Logi Tune.app" ] && [ ! -d "/Applications/LogiTune.app" ]; then
     installer=$(find /opt/homebrew/Caskroom/logitune -name "LogiTuneInstaller.app" -maxdepth 2 2>/dev/null | head -1)
     if [ -n "$installer" ]; then
         warn "LogiTune needs manual installation — opening installer"
@@ -116,13 +116,19 @@ fi
 success "fzf integration installed"
 
 # Global npm packages
+# fnm scopes global packages per Node version, so these must be (re)installed
+# whenever the active version changes. Keep the list in sync with bin/update.
 step "Installing global npm packages"
 if command -v fnm &>/dev/null; then
     eval "$(fnm env --use-on-cd)" || warn "fnm activation failed"
     fnm install --lts || warn "fnm install failed"
     fnm use lts-latest || warn "fnm use failed"
-    npm install -g agent-browser || warn "agent-browser already installed or failed"
+    npm install -g agent-browser defuddle || warn "Global npm install failed"
     agent-browser install 2>/dev/null || warn "agent-browser setup skipped"
+    # agent-browser's skill is a thin stub that resolves its content from the
+    # installed CLI at runtime. Pull it from upstream rather than vendoring it.
+    npx -y skills@latest add -g vercel-labs/agent-browser --copy -a claude-code -y \
+        || warn "agent-browser skill install failed"
 else
     warn "fnm not found — skipping global npm packages"
 fi
@@ -135,8 +141,13 @@ success "Code directory ready"
 
 # macOS defaults
 step "Applying macOS defaults"
-source ~/.dotfiles/macos/configure.sh
-success "macOS defaults applied"
+# Run as a subprocess, not sourced: configure.sh exits when you decline its
+# prompt, which would take this script down with it.
+if bash ~/.dotfiles/macos/configure.sh; then
+    success "macOS defaults applied"
+else
+    warn "macOS defaults failed"
+fi
 
 # Done
 echo ""

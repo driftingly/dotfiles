@@ -1,5 +1,6 @@
 # Taps
 tap 'stripe/stripe-cli'                 # https://github.com/stripe/stripe-cli
+tap 'upsun/tap'                         # https://github.com/upsun/cli
 
 # Fonts
 cask 'font-monaspice-nerd-font'         # https://github.com/githubnext/monaspace - Monaspace with Nerd Font icons
@@ -23,19 +24,23 @@ brew 'git-delta'                        # https://formulae.brew.sh/formula/git-d
 brew 'httpie'                           # https://formulae.brew.sh/formula/httpie - User-friendly cURL replacement
 brew 'imagemagick'                      # https://formulae.brew.sh/formula/imagemagick - Image manipulation toolkit
 brew 'jq'                               # https://formulae.brew.sh/formula/jq - JSON processor
+brew 'mydumper'                         # https://formulae.brew.sh/formula/mydumper - Multi-threaded MySQL logical backup and restore
 brew 'ncdu'                             # https://formulae.brew.sh/formula/ncdu - Interactive disk usage TUI
 brew 'neovim'                           # https://formulae.brew.sh/formula/neovim - Vim-fork focused on extensibility and agility
-brew 'pkg-config'                       # https://formulae.brew.sh/formula/pkg-config - Manage compile and link flags for libraries
+brew 'pkgconf'                          # https://formulae.brew.sh/formula/pkgconf - Manage compile and link flags for libraries (provides pkg-config)
+brew 'poppler'                          # https://formulae.brew.sh/formula/poppler - PDF rendering library and CLI utilities (pdftoppm, pdftotext)
 brew 'ripgrep'                          # https://formulae.brew.sh/formula/ripgrep - Fast recursive search (rg)
 brew 'trash'                            # https://formulae.brew.sh/formula/trash - Manage the Trash bin
 brew 'tree'                             # https://formulae.brew.sh/formula/tree - List directories in a tree structure
 brew 'wget'                             # https://formulae.brew.sh/formula/wget - Internet file retriever
+brew 'whisper.cpp'                      # https://formulae.brew.sh/formula/whisper.cpp - Port of OpenAI's Whisper speech-to-text model in C/C++
 brew 'yq'                               # https://formulae.brew.sh/formula/yq - YAML processor (jq for YAML)
 brew 'zoxide'                           # https://formulae.brew.sh/formula/zoxide - Smarter cd command (`z`)
 brew 'zsh-autosuggestions'              # https://formulae.brew.sh/formula/zsh-autosuggestions - Fish-style autosuggestions for zsh
 brew 'zsh-syntax-highlighting'          # https://formulae.brew.sh/formula/zsh-syntax-highlighting - Fish-style syntax highlighting for zsh
 brew 'stripe/stripe-cli/stripe'         # https://github.com/stripe/stripe-cli - Stripe command-line interface
 brew 'stripe/stripe-mock/stripe-mock'   # https://github.com/stripe/stripe-mock - Stripe mock server
+brew 'upsun/tap/upsun-cli'              # https://github.com/upsun/cli - Upsun command-line interface
 
 # Apps
 cask '1password'
