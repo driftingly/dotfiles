@@ -1,30 +1,39 @@
 #!/bin/bash
+#
+# Claude Code status line: <repo>:<branch> | <model> | ctx: <percent>
+# One jq call, since this runs on every render.
 
-# Read JSON input once
-input=$(cat)
+# Line-delimited, not tab: read treats tabs as collapsible whitespace, which
+# would shift the fields whenever one of them is empty.
+{ read -r cwd; read -r model; read -r ctx_pct; } < <(
+    jq -r '
+        .workspace.current_dir // "",
+        .model.display_name // "",
+        (.context_window.used_percentage // 0 | floor | tostring)
+    '
+)
 
-# Extract current directory
-cwd=$(echo "$input" | jq -r '.workspace.current_dir')
+cwd="${cwd:-$PWD}"
 
-# Extract context percentage
-ctx_pct=$(echo "$input" | jq -r '.context_window.used_percentage // 0' | cut -d. -f1)
-
-# Git information
-if git -C "$cwd" rev-parse --git-dir > /dev/null 2>&1; then
-  # Get repo name (just the directory name)
-  repo_name=$(basename "$cwd")
-
-  # Color the context percentage based on usage
-  if [ "$ctx_pct" -ge 60 ]; then
-    ctx_color='\033[01;31m' # red
-  elif [ "$ctx_pct" -ge 40 ]; then
-    ctx_color='\033[01;33m' # yellow
-  else
-    ctx_color='\033[01;32m' # green
-  fi
-
-  printf '\033[01;36m%s\033[00m | ctx: %b%s%%\033[00m' \
-    "$repo_name" "$ctx_color" "$ctx_pct"
+# Prefer the repo root name over the current directory, and add the branch.
+if git -C "$cwd" rev-parse --git-dir >/dev/null 2>&1; then
+    root=$(git -C "$cwd" rev-parse --show-toplevel 2>/dev/null)
+    location=$(basename "${root:-$cwd}")
+    branch=$(git -C "$cwd" branch --show-current 2>/dev/null)
+    [ -z "$branch" ] && branch=$(git -C "$cwd" rev-parse --short HEAD 2>/dev/null)
+    [ -n "$branch" ] && location="$location:$branch"
 else
-  printf '\033[01;36m%s\033[00m | ctx: %s%%' "$cwd" "$ctx_pct"
+    location="${cwd/#$HOME/~}"
 fi
+
+if [ "$ctx_pct" -ge 60 ]; then
+    ctx_color='\033[01;31m' # red
+elif [ "$ctx_pct" -ge 40 ]; then
+    ctx_color='\033[01;33m' # yellow
+else
+    ctx_color='\033[01;32m' # green
+fi
+
+printf '\033[01;36m%s\033[00m' "$location"
+[ -n "$model" ] && printf ' | \033[02m%s\033[00m' "$model"
+printf ' | ctx: %b%s%%\033[00m' "$ctx_color" "$ctx_pct"

@@ -4,17 +4,7 @@
 
 set -e
 
-# Colors
-BLUE='\033[0;34m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-RED='\033[0;31m'
-NC='\033[0m'
-
-step()    { echo ""; echo -e "${BLUE}➜${NC} $1"; }
-success() { echo -e "${GREEN}✓${NC} $1"; }
-warn()    { echo -e "${YELLOW}⚠${NC} $1"; }
-error()   { echo -e "${RED}✗${NC} $1"; exit 1; }
+source "$(dirname "$0")/lib.sh"
 
 echo ""
 step "Install Dotfiles"
@@ -76,12 +66,12 @@ ln -sf ~/.dotfiles/config/ghostty/config ~/.config/ghostty/config
 
 mkdir -p ~/.claude
 ln -sf ~/.dotfiles/config/claude/CLAUDE.md                 ~/.claude/CLAUDE.md
-ln -sf ~/.dotfiles/config/claude/laravel-php-guidelines.md ~/.claude/laravel-php-guidelines.md
 ln -sf ~/.dotfiles/config/claude/settings.json             ~/.claude/settings.json
 ln -sf ~/.dotfiles/config/claude/statusline.sh             ~/.claude/statusline.sh
-rm -rf ~/.claude/agents ~/.claude/skills
+rm -rf ~/.claude/agents ~/.claude/skills ~/.claude/hooks
 ln -s ~/.dotfiles/config/claude/agents ~/.claude/agents
 ln -s ~/.dotfiles/config/claude/skills ~/.claude/skills
+ln -s ~/.dotfiles/config/claude/hooks  ~/.claude/hooks
 success "Symlinks created"
 
 # Git configuration
@@ -93,20 +83,11 @@ success "Git configured"
 # Homebrew packages
 step "Installing packages from Brewfile"
 brew trust --tap stripe/stripe-cli stripe/stripe-mock upsun/tap || warn "brew trust failed"
-brew update
+brew update || warn "brew update failed"
 brew bundle --file=~/.dotfiles/config/Brewfile || warn "Some packages failed (likely already installed)"
 success "Brewfile processed"
 
-# Run installer-type casks that brew bundle can't auto-install
-step "Checking installer-type casks"
-if [ ! -d "/Applications/Logi Tune.app" ] && [ ! -d "/Applications/LogiTune.app" ]; then
-    installer=$(find /opt/homebrew/Caskroom/logitune -name "LogiTuneInstaller.app" -maxdepth 2 2>/dev/null | head -1)
-    if [ -n "$installer" ]; then
-        warn "LogiTune needs manual installation — opening installer"
-        open "$installer"
-    fi
-fi
-success "Installer-type casks checked"
+check_installer_casks
 
 # fzf shell integration (creates ~/.fzf.zsh with keybindings + completion)
 step "Setting up fzf shell integration"
@@ -115,24 +96,15 @@ if [ -x "$(brew --prefix)/opt/fzf/install" ]; then
 fi
 success "fzf integration installed"
 
-# Global npm packages
-# fnm scopes global packages per Node version, so these must be (re)installed
-# whenever the active version changes. Keep the list in sync with bin/update.
-step "Installing global npm packages"
+# Node itself, then the global packages shared with bin/update
+step "Installing Node via fnm"
 if command -v fnm &>/dev/null; then
     eval "$(fnm env --use-on-cd)" || warn "fnm activation failed"
     fnm install --lts || warn "fnm install failed"
-    fnm use lts-latest || warn "fnm use failed"
-    npm install -g agent-browser defuddle || warn "Global npm install failed"
-    agent-browser install 2>/dev/null || warn "agent-browser setup skipped"
-    # agent-browser's skill is a thin stub that resolves its content from the
-    # installed CLI at runtime. Pull it from upstream rather than vendoring it.
-    npx -y skills@latest add -g vercel-labs/agent-browser --copy -a claude-code -y \
-        || warn "agent-browser skill install failed"
-else
-    warn "fnm not found — skipping global npm packages"
 fi
-success "npm packages processed"
+success "Node installed"
+
+install_npm_globals
 
 # Code directory
 step "Creating Code directory"

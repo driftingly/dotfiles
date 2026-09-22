@@ -5,7 +5,7 @@ Borrows heavily from [Dries Vints' dotfiles](https://github.com/driesvints/dotfi
 ## Setting up a new Mac
 
 1. Update macOS to the latest version via the App Store.
-2. [Download and install 1Password](https://1password.com/downloads/mac/). Sign in, then enable the SSH agent (Settings → Developer → Use the SSH agent). This handles your SSH key and commit signing — no need to generate keys manually.
+2. [Download and install 1Password](https://1password.com/downloads/mac/). Sign in, then enable the SSH agent (Settings → Developer → Use the SSH agent). This handles your SSH key and commit signing, so there is no need to generate keys manually.
 3. Clone this repo:
 
    ```zsh
@@ -74,8 +74,8 @@ zsh/              .zshrc, aliases, exports, functions
 ### Other (manual download or in-app install)
 
 - [Grammarly](https://www.grammarly.com/desktop)
-- Actions For Obsidian — Obsidian community plugin, installed from inside Obsidian
-- Browser Actions — Safari extension
+- Actions For Obsidian (Obsidian community plugin, installed from inside Obsidian)
+- Browser Actions (Safari extension)
 - Polyscope
 - Showcode
 - Solo

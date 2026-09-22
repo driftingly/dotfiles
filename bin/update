@@ -4,44 +4,34 @@
 
 set -e
 
-# Colors
-BLUE='\033[0;34m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-NC='\033[0m'
-
-step()    { echo ""; echo -e "${BLUE}➜${NC} $1"; }
-success() { echo -e "${GREEN}✓${NC} $1"; }
-warn()    { echo -e "${YELLOW}⚠${NC} $1"; }
+source "$(dirname "$0")/lib.sh"
 
 echo ""
 step "Updating dotfiles"
 echo ""
 
-# Update dotfiles repo
+# Update dotfiles repo. Fast-forward only, and never over local edits: pulling
+# onto a dirty tree fails under the repo's pull.rebase setting, which would
+# take the rest of this script down with it.
 step "Pulling latest changes"
-git -C ~/.dotfiles pull origin main
+if [ -n "$(git -C ~/.dotfiles status --porcelain)" ]; then
+    warn "Uncommitted changes in ~/.dotfiles, skipping pull"
+else
+    git -C ~/.dotfiles pull --ff-only origin main || warn "Pull failed (diverged from origin?)"
+fi
 success "Dotfiles updated"
 
-# Update Homebrew and packages
+# Update Homebrew and packages. Each step warns rather than aborting, so one
+# broken formula does not skip everything below.
 step "Updating Homebrew packages"
 brew trust --tap stripe/stripe-cli stripe/stripe-mock upsun/tap || warn "brew trust failed"
-brew update
-brew upgrade
-brew bundle --file=~/.dotfiles/config/Brewfile
-brew cleanup
+brew update || warn "brew update failed"
+brew upgrade || warn "brew upgrade failed"
+brew bundle --file=~/.dotfiles/config/Brewfile || warn "Some packages failed"
+brew cleanup || warn "brew cleanup failed"
 success "Homebrew packages updated"
 
-# Run installer-type casks that brew bundle can't auto-install
-step "Checking installer-type casks"
-if [ ! -d "/Applications/Logi Tune.app" ] && [ ! -d "/Applications/LogiTune.app" ]; then
-    installer=$(find /opt/homebrew/Caskroom/logitune -name "LogiTuneInstaller.app" -maxdepth 2 2>/dev/null | head -1)
-    if [ -n "$installer" ]; then
-        warn "LogiTune needs manual installation — opening installer"
-        open "$installer"
-    fi
-fi
-success "Installer-type casks checked"
+check_installer_casks
 
 # Update Oh My Zsh
 step "Updating Oh My Zsh"
@@ -63,21 +53,13 @@ step "Checking .zshrc.local"
 ln -sf ~/.dotfiles/zsh/.zshrc.local ~/.zshrc.local
 success ".zshrc.local ready"
 
-# Update global npm packages
-# `npm install -g` rather than `npm update -g`: fnm keeps globals per Node
-# version, so a package missing from the active version needs installing, not
-# updating. Keep the list in sync with bin/install.
-step "Updating global npm packages"
-if command -v fnm &>/dev/null; then
-    eval "$(fnm env --use-on-cd)"
-    fnm use lts-latest || warn "fnm use failed"
-    npm install -g agent-browser defuddle || warn "Global npm install failed"
-    agent-browser install 2>/dev/null || warn "agent-browser setup skipped"
+install_npm_globals
+
+step "Updating installed skills"
+if command -v npx &>/dev/null; then
     npx -y skills@latest update -g -y || warn "Skill update failed"
-else
-    warn "fnm not found — skipping global npm packages"
 fi
-success "npm packages updated"
+success "Skills updated"
 
 # Done
 echo ""

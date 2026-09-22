@@ -59,22 +59,30 @@ alias prune-dry="git remote prune origin --dry-run"
 alias prune="git remote prune origin"
 
 # Modern CLI tool aliases (conditional on installation)
-if command -v eza &> /dev/null; then
-    alias ls="eza --icons=auto --group-directories-first"
-    alias l="eza -la --icons=auto --group-directories-first --hyperlink"
-    alias ll="eza -l --icons=auto --group-directories-first --hyperlink"
-    alias lt="eza --tree --level=2 --icons=auto"
+#
+# Skipped under Claude Code. It snapshots this shell, aliases included, so
+# these replacements reach every command it runs. eza, bat, and rg do not take
+# the same flags as ls, cat, and grep, which breaks commands that look correct
+# (`ls -t` is an eza error, not a listing).
+if [ -z "$CLAUDECODE" ]; then
+    if command -v eza &> /dev/null; then
+        alias ls="eza --icons=auto --group-directories-first"
+        alias l="eza -la --icons=auto --group-directories-first --hyperlink"
+        alias ll="eza -l --icons=auto --group-directories-first --hyperlink"
+        alias lt="eza --tree --level=2 --icons=auto"
+    fi
+
+    if command -v bat &> /dev/null; then
+        alias cat="bat --style=plain"
+    fi
+
+    if command -v rg &> /dev/null; then
+        alias grep="rg"
+    fi
 fi
 
-if command -v bat &> /dev/null; then
-    alias cat="bat --style=plain"
-fi
-
-if command -v rg &> /dev/null; then
-    alias grep="rg"
-fi
-
-if command -v bottom &> /dev/null; then
+# The formula is called bottom, but the binary it installs is btm.
+if command -v btm &> /dev/null; then
     alias htop="btm"
     alias top="btm"
 fi
