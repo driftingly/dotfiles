@@ -3,3 +3,4 @@
 /zsh/plugins/
 .DS_Store
 config/claude/skills/agent-browser/
+config/claude/skills/synced/
