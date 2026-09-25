@@ -1,5 +1,4 @@
 /.scratch
-/zsh/.zshrc.local
 /zsh/plugins/
 .DS_Store
 config/claude/skills/agent-browser/

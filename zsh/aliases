@@ -30,6 +30,9 @@ alias php="herd php"
 alias composer="herd composer"
 alias hostfile="sudo vi /etc/hosts"
 
+# Docker
+alias takeout="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock --add-host=host.docker.internal:host-gateway -it tighten/takeout:latest"
+
 php80() { "$HOME/Library/Application Support/Herd/bin/php80" "$@"; }
 php81() { "$HOME/Library/Application Support/Herd/bin/php81" "$@"; }
 php82() { "$HOME/Library/Application Support/Herd/bin/php82" "$@"; }

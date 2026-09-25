@@ -59,7 +59,7 @@ zsh/              .zshrc, aliases, exports, functions
 
 ## Notes
 
-- Machine-specific shell config (e.g. Herd's auto-injected PHP paths) belongs in `~/.zshrc.local`, which `.zshrc` sources if present. Don't commit it.
+- Herd appends its PHP exports directly to `~/.zshrc`, so those live in `zsh/.zshrc` alongside everything else.
 - The macOS defaults script (`macos/configure.sh`) can be re-run independently. It will prompt for confirmation before making changes.
 
 ## Mac App Store / manual installs
