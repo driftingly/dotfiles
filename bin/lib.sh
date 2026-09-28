@@ -42,7 +42,13 @@ install_npm_globals() {
     # agent-browser's skill is a thin stub that resolves its content from the
     # installed CLI at runtime, so it is pulled from upstream rather than
     # vendored. It lands in config/claude/skills, which .gitignore excludes.
-    npx -y skills@latest add -g vercel-labs/agent-browser --copy -a claude-code -y \
-        || warn "agent-browser skill install failed"
+    # Only added when missing (bin/install wipes ~/.claude/skills); refreshing an
+    # existing copy is the job of the `skills update` step in bin/update.
+    if [ -f ~/.dotfiles/config/claude/skills/agent-browser/SKILL.md ]; then
+        success "agent-browser skill already installed"
+    else
+        npx -y skills@latest add -g vercel-labs/agent-browser --copy -a claude-code -y \
+            || warn "agent-browser skill install failed"
+    fi
     success "npm packages processed"
 }
