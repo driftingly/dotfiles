@@ -4,8 +4,8 @@
   },
   "permissions": {
     "allow": [
-      "Bash(./vendor/bin/*:*)",
-      "Bash(.husky/*:*)",
+      "Bash(./vendor/bin/*)",
+      "Bash(.husky/*)",
       "Bash(awk:*)",
       "Bash(brew:*)",
       "Bash(cat:*)",
@@ -46,7 +46,7 @@
       "Bash(touch:*)",
       "Bash(tr:*)",
       "Bash(uniq:*)",
-      "Bash(vendor/bin/*:*)",
+      "Bash(vendor/bin/*)",
       "Bash(wc:*)",
       "Bash(which:*)",
       "Bash(whoami:*)",
