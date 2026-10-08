@@ -1,0 +1,38 @@
+# Extras for the full (personal Mac) profile, installed on top of Brewfile.
+
+# Taps
+tap 'stripe/stripe-cli'                 # https://github.com/stripe/stripe-cli
+tap 'upsun/tap'                         # https://github.com/upsun/cli
+
+# Binaries
+brew 'ffmpeg'                           # https://formulae.brew.sh/formula/ffmpeg - Play, record, convert, and stream audio and video
+brew 'stripe/stripe-cli/stripe'         # https://github.com/stripe/stripe-cli - Stripe command-line interface
+brew 'stripe/stripe-mock/stripe-mock'   # https://github.com/stripe/stripe-mock - Stripe mock server
+brew 'upsun/tap/upsun-cli'              # https://github.com/upsun/cli - Upsun command-line interface
+
+# Apps
+cask 'arc'
+cask 'cleanshot'
+cask 'daisydisk'
+cask 'discord'
+cask 'docker-desktop'
+cask 'elgato-control-center'
+cask 'elgato-stream-deck'
+cask 'firefox'
+cask 'imageoptim'
+cask 'logi-options+'
+cask 'logitune'
+cask 'obs'
+cask 'obsidian'
+cask 'ray'
+cask 'raycast'
+cask 'screenflow'
+cask 'slack'
+cask 'spotify'
+cask 'sublime-merge'
+cask 'telegram'
+cask 'tinkerwell'
+cask 'todoist-app'
+cask 'vlc'
+cask 'whatsapp'
+cask 'zoom'

@@ -1,13 +1,23 @@
 #!/bin/bash
 #
 # Install dotfiles
+#
+# Usage: bin/install [--vm|--full]
+# With no flag, the machine keeps its recorded profile (full if none).
 
 set -e
 
 source "$(dirname "$0")/lib.sh"
 
+case "${1:-}" in
+    --vm)   PROFILE=vm ;;
+    --full) PROFILE=full ;;
+    "")     PROFILE=$(read_profile) ;;
+    *)      error "Unknown option '$1' (expected --vm or --full)" ;;
+esac
+
 echo ""
-step "Install Dotfiles"
+step "Install Dotfiles ($PROFILE profile)"
 echo ""
 warn "This will install/update your terminal setup"
 echo ""
@@ -23,6 +33,8 @@ fi
 
 echo ""
 sudo -v
+
+echo "$PROFILE" > "$PROFILE_FILE"
 
 # Oh My Zsh
 step "Installing Oh My Zsh"
@@ -80,9 +92,8 @@ success "Git configured"
 
 # Homebrew packages
 step "Installing packages from Brewfile"
-brew trust --tap stripe/stripe-cli stripe/stripe-mock upsun/tap || warn "brew trust failed"
 brew update || warn "brew update failed"
-brew bundle --file=~/.dotfiles/config/Brewfile || warn "Some packages failed (likely already installed)"
+brew_bundle "$PROFILE"
 success "Brewfile processed"
 
 check_installer_casks

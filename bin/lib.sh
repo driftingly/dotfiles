@@ -13,6 +13,32 @@ success() { echo -e "${GREEN}✓${NC} $1"; }
 warn()    { echo -e "${YELLOW}⚠${NC} $1"; }
 error()   { echo -e "${RED}✗${NC} $1"; exit 1; }
 
+# Machine profile: "full" (personal Mac) or "vm" (core dev tools only).
+# bin/install records it in a gitignored file so bin/update needs no flag.
+# A missing file means full, which keeps machines set up before profiles
+# existed on their old behavior.
+PROFILE_FILE=~/.dotfiles/.profile
+
+read_profile() {
+    local profile
+    profile=$(cat "$PROFILE_FILE" 2>/dev/null || echo full)
+    case "$profile" in
+        full|vm) echo "$profile" ;;
+        *) error "Unknown profile '$profile' in $PROFILE_FILE (expected full or vm)" >&2 ;;
+    esac
+}
+
+# Brewfile is the core set every machine gets. Brewfile.full is layered on
+# top for the full profile only; its taps need trusting first.
+brew_bundle() {
+    local profile="$1"
+    brew bundle --file=~/.dotfiles/config/Brewfile || warn "Some core packages failed"
+    if [ "$profile" = full ]; then
+        brew trust --tap stripe/stripe-cli stripe/stripe-mock upsun/tap || warn "brew trust failed"
+        brew bundle --file=~/.dotfiles/config/Brewfile.full || warn "Some full profile packages failed"
+    fi
+}
+
 # brew bundle cannot drive installer-type casks, so LogiTune needs a hand.
 check_installer_casks() {
     step "Checking installer-type casks"

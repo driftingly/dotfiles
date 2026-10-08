@@ -5,7 +5,16 @@ Borrows heavily from [Dries Vints' dotfiles](https://github.com/driesvints/dotfi
 ## Setting up a new Mac
 
 1. Update macOS to the latest version via the App Store.
-2. [Download and install 1Password](https://1password.com/downloads/mac/). Sign in, then enable the SSH agent (Settings → Developer → Use the SSH agent). This handles your SSH key and commit signing, so there is no need to generate keys manually.
+2. Install 1Password from the terminal (or [download it manually](https://1password.com/downloads/mac/)):
+
+   ```zsh
+   curl -fL -o /tmp/1Password.pkg https://downloads.1password.com/mac/1Password.pkg \
+     && pkgutil --check-signature /tmp/1Password.pkg \
+     && sudo installer -pkg /tmp/1Password.pkg -target / \
+     && rm /tmp/1Password.pkg
+   ```
+
+   The signature check stops the install if the package is unsigned or tampered with. Its output should name AgileBits Inc. as the developer. Sign in, then enable the SSH agent (Settings → Developer → Use the SSH agent). This handles your SSH key and commit signing, so there is no need to generate keys manually.
 3. Clone this repo:
 
    ```zsh
@@ -34,6 +43,16 @@ Borrows heavily from [Dries Vints' dotfiles](https://github.com/driesvints/dotfi
 5. Install apps that aren't available via Homebrew (see [below](#mac-app-store--manual-installs)).
 6. Restart your computer to finalize.
 
+## Setting up a development VM
+
+macOS VMs get only the core development tools. Follow the steps above, but run the install script with `--vm`:
+
+```zsh
+~/.dotfiles/bin/install --vm
+```
+
+This installs `config/Brewfile` (core tools) and skips `config/Brewfile.full` (personal apps and extras). The profile is saved to `~/.dotfiles/.profile`, so `bin/update` and later runs of `bin/install` keep using it without the flag. Run `bin/install --full` to switch a machine to the full profile. A machine with no saved profile is treated as full.
+
 ## Updating
 
 Pull the latest dotfiles and refresh everything:
@@ -49,7 +68,8 @@ This updates the dotfiles repo, Homebrew packages, Oh My Zsh, zsh plugins, and g
 ```
 bin/              Install and update scripts
 config/
-  Brewfile        Homebrew packages and casks
+  Brewfile        Core Homebrew packages and casks (every machine)
+  Brewfile.full   Extra packages and apps (full profile only)
   claude/         Claude Code config, agents, and skills
   ghostty/        Ghostty terminal config
 git/              .gitconfig and .gitignore_global

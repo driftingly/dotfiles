@@ -23,11 +23,11 @@ success "Dotfiles updated"
 
 # Update Homebrew and packages. Each step warns rather than aborting, so one
 # broken formula does not skip everything below.
-step "Updating Homebrew packages"
-brew trust --tap stripe/stripe-cli stripe/stripe-mock upsun/tap || warn "brew trust failed"
+PROFILE=$(read_profile)
+step "Updating Homebrew packages ($PROFILE profile)"
 brew update || warn "brew update failed"
 brew upgrade || warn "brew upgrade failed"
-brew bundle --file=~/.dotfiles/config/Brewfile || warn "Some packages failed"
+brew_bundle "$PROFILE"
 brew cleanup || warn "brew cleanup failed"
 success "Homebrew packages updated"
 
