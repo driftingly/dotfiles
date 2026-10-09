@@ -55,6 +55,8 @@ This installs `config/Brewfile` (core tools) and skips `config/Brewfile.full` (p
 
 On the vm profile, the shell prompt starts with a yellow `[vm]` label so you can always tell the two machines apart.
 
+To SSH from the Mac into the VM, share `~/Documents/VMPal` between them so it sits at the same path on both. Each local terminal opened in the VM saves the VM's IP to `~/Documents/VMPal/vm-ip.txt` (run `saveip` to do it by hand). On the Mac, `vmssh` reads that file and connects.
+
 ## Updating
 
 Pull the latest dotfiles and refresh everything:

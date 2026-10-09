@@ -44,8 +44,12 @@ command -v fnm    &>/dev/null && eval "$(fnm env --use-on-cd)"
 command -v direnv &>/dev/null && eval "$(direnv hook zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Label VM shells so the two machines are easy to tell apart.
-[ "$(cat ~/.dotfiles/.profile 2>/dev/null)" = vm ] && PROMPT="%F{yellow}[vm]%f $PROMPT"
+if [ "$(cat ~/.dotfiles/.profile 2>/dev/null)" = vm ]; then
+    # Label VM shells so the two machines are easy to tell apart.
+    PROMPT="%F{yellow}[vm]%f $PROMPT"
+    # Keep the host's copy of this VM's IP current (skipped for SSH sessions).
+    [[ -z $SSH_CONNECTION ]] && saveip >/dev/null 2>&1
+fi
 
 # Herd injected PHP binary.
 export PATH="$HOME/Library/Application Support/Herd/bin/":$PATH

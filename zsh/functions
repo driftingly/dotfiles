@@ -111,3 +111,26 @@ db() {
 
     open $DB_URL
 }
+
+# The VM saves its IP to a folder shared with the host, at the same path on both
+VM_IP_FILE=~/Documents/VMPal/vm-ip.txt
+
+# Run in the VM: save this VM's IP for the host
+function saveip() {
+   local ip=$(ipconfig getifaddr en0)
+   if [[ -z $ip ]]; then
+      echo "No IP found on en0"
+      return 1
+   fi
+   echo "$ip" > "$VM_IP_FILE" && echo "Saved $ip"
+}
+
+# Run on the host: SSH into the VM using its saved IP
+function vmssh() {
+   local ip=$(cat "$VM_IP_FILE" 2>/dev/null)
+   if [[ -z $ip ]]; then
+      echo "No IP found in $VM_IP_FILE. Open a terminal in the VM or run saveip there."
+      return 1
+   fi
+   ssh -o HostKeyAlias=macvm "anthony@$ip" "$@"
+}
