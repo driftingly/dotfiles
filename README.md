@@ -53,6 +53,8 @@ macOS VMs get only the core development tools. Follow the steps above, but run t
 
 This installs `config/Brewfile` (core tools) and skips `config/Brewfile.full` (personal apps and extras). The profile is saved to `~/.dotfiles/.profile`, so `bin/update` and later runs of `bin/install` keep using it without the flag. Run `bin/install --full` to switch a machine to the full profile. A machine with no saved profile is treated as full.
 
+On the vm profile, the shell prompt starts with a yellow `[vm]` label so you can always tell the two machines apart.
+
 ## Updating
 
 Pull the latest dotfiles and refresh everything:

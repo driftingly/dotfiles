@@ -44,6 +44,9 @@ command -v fnm    &>/dev/null && eval "$(fnm env --use-on-cd)"
 command -v direnv &>/dev/null && eval "$(direnv hook zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Label VM shells so the two machines are easy to tell apart.
+[ "$(cat ~/.dotfiles/.profile 2>/dev/null)" = vm ] && PROMPT="%F{yellow}[vm]%f $PROMPT"
+
 # Herd injected PHP binary.
 export PATH="$HOME/Library/Application Support/Herd/bin/":$PATH
 
