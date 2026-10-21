@@ -63,7 +63,7 @@ install_npm_globals() {
     fi
     eval "$(fnm env --use-on-cd)" || warn "fnm activation failed"
     fnm use lts-latest || warn "fnm use failed"
-    npm install -g agent-browser defuddle || warn "Global npm install failed"
+    npm install -g --allow-scripts=agent-browser agent-browser defuddle || warn "Global npm install failed"
     agent-browser install 2>/dev/null || warn "agent-browser setup skipped"
     # agent-browser's skill is a thin stub that resolves its content from the
     # installed CLI at runtime, so it is pulled from upstream rather than
