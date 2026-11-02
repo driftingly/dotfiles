@@ -9,7 +9,6 @@
       "Bash(awk:*)",
       "Bash(brew:*)",
       "Bash(cat:*)",
-      "Bash(chmod:*)",
       "Bash(code:*)",
       "Bash(composer:*)",
       "Bash(cp:*)",
@@ -30,15 +29,11 @@
       "Bash(make:*)",
       "Bash(mkdir:*)",
       "Bash(mv:*)",
-      "Bash(node:*)",
       "Bash(npm:*)",
-      "Bash(npx:*)",
       "Bash(open:*)",
       "Bash(php artisan:*)",
-      "Bash(php:*)",
       "Bash(pnpm:*)",
       "Bash(pwd:*)",
-      "Bash(python3:*)",
       "Bash(sed:*)",
       "Bash(sort:*)",
       "Bash(sqlite3:*)",
@@ -50,7 +45,6 @@
       "Bash(wc:*)",
       "Bash(which:*)",
       "Bash(whoami:*)",
-      "Bash(xargs:*)",
       "Bash(yarn:*)",
       "Edit",
       "Glob",
@@ -164,7 +158,12 @@
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
   "tui": "fullscreen",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
   "skipDangerousModePermissionPrompt": false,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "voiceEnabled": true
 }

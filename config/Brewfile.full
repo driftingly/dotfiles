@@ -1,6 +1,7 @@
 # Extras for the full (personal Mac) profile, installed on top of Brewfile.
 
 # Taps
+tap 'anomalyco/tap'                     # https://github.com/anomalyco/homebrew-tap
 tap 'stripe/stripe-cli'                 # https://github.com/stripe/stripe-cli
 tap 'upsun/tap'                         # https://github.com/upsun/cli
 
@@ -19,6 +20,7 @@ cask 'docker-desktop'
 cask 'elgato-control-center'
 cask 'elgato-stream-deck'
 cask 'firefox'
+cask 'anomalyco/tap/hex'
 cask 'imageoptim'
 cask 'logi-options+'
 cask 'logitune'
