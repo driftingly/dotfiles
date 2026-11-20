@@ -45,3 +45,6 @@ superpowers
 
 # Temp files
 pr.md
+
+# Laravel
+storage/framework/lsp-*.php

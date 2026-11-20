@@ -53,6 +53,21 @@ check_installer_casks() {
     success "Installer-type casks checked"
 }
 
+# Rust via rustup, the officially recommended installer. Installs when
+# missing, otherwise updates rustup itself and the installed toolchains.
+# --no-modify-path because zsh/exports already puts ~/.cargo/bin on PATH.
+install_rust() {
+    step "Installing Rust"
+    if [ -x ~/.cargo/bin/rustup ]; then
+        ~/.cargo/bin/rustup self update || warn "rustup self update failed"
+        ~/.cargo/bin/rustup update || warn "rustup update failed"
+    else
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path \
+            || warn "Rust installation failed"
+    fi
+    success "Rust installed"
+}
+
 # fnm scopes global packages per Node version, so these are installed rather
 # than updated. A package present under one version is absent under the next.
 install_npm_globals() {

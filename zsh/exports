@@ -27,5 +27,8 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 # Composer global bin
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 
+# Rust (rustup and cargo installed binaries)
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # VS Code CLI
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"

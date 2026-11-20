@@ -115,6 +115,8 @@ success "Node installed"
 
 install_npm_globals
 
+install_rust
+
 # Code directory
 step "Creating Code directory"
 mkdir -p ~/Code

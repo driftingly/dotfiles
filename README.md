@@ -65,7 +65,7 @@ Pull the latest dotfiles and refresh everything:
 ~/.dotfiles/bin/update
 ```
 
-This updates the dotfiles repo, Homebrew packages, Oh My Zsh, zsh plugins, and global npm packages.
+This updates the dotfiles repo, Homebrew packages, Oh My Zsh, zsh plugins, global npm packages, and Rust (installing it via rustup if missing).
 
 ## Structure
 

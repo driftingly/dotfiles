@@ -49,6 +49,8 @@ success "Zsh plugins updated"
 
 install_npm_globals
 
+install_rust
+
 step "Updating installed skills"
 if command -v npx &>/dev/null; then
     npx -y skills@latest update -g -y || warn "Skill update failed"
