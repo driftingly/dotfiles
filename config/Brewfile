@@ -8,7 +8,8 @@ cask 'font-monaspice-nerd-font'         # https://github.com/githubnext/monaspac
 brew 'bash'                             # https://formulae.brew.sh/formula/bash - Latest Bash version
 brew 'bat'                              # https://formulae.brew.sh/formula/bat - Cat clone with syntax highlighting and Git integration
 brew 'bottom'                           # https://formulae.brew.sh/formula/bottom - Modern top/htop replacement (`btm`)
-brew 'coreutils'                        # https://formulae.brew.sh/formula/coreutils - GNU file, shell, and text utilities
+brew 'cloudflared'                      # https://formulae.brew.sh/formula/cloudflared - Cloudflare Tunnel client
+brew 'coreutils'                       # https://formulae.brew.sh/formula/coreutils - GNU file, shell, and text utilities
 brew 'direnv'                           # https://formulae.brew.sh/formula/direnv - Per-directory environment variables via .envrc
 brew 'eza'                              # https://formulae.brew.sh/formula/eza - Modern, maintained replacement for ls
 brew 'fd'                               # https://formulae.brew.sh/formula/fd - Simple, fast, user-friendly alternative to find
